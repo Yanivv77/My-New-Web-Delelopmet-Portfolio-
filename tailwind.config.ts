@@ -29,7 +29,7 @@ const config = {
       colors: {
         black: {
           DEFAULT: "#000000",
-          100: "#1C1C1E",
+          100: "rgb(15 15 27)",
           200: "#2C2C2E",
           300: "#3A3A3C",
         },
@@ -49,7 +49,7 @@ const config = {
           800: "#003566",
           900: "#001833",
         },
-        purple: "#CBACF9",
+        purple: "#007ACC",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
