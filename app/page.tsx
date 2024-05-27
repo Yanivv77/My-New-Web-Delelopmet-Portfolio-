@@ -6,6 +6,7 @@ import Grid from "@/components/ui/Grid";
 import RecentProjects from "@/components/RecentProjects";
 import Footer from "@/components/Footer";
 
+
 const Home = () => {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
