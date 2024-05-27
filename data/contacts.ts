@@ -10,25 +10,25 @@ const data: Contact[] = [
     id: 1,
     name: "github",
     label: "github",
-    link: "http://github.com/username",
+    link: "http://github.com/yanivv77",
   },
   {
     id: 2,
     name: "linkedin",
     label: "linkedin",
-    link: "http://linkedin.com/username",
+    link: "http://linkedin.com/in/yanivv77",
   },
   {
     id: 3,
     name: "email",
     label: "email",
-    link: "mailto:email@gmail.com",
+    link: "mailto:Yanivv77@gmail.com",
   },
   {
     id: 4,
     name: "cv",
     label: "download cv",
-    link: "/files/cv.pdf",
+    link: "/files/FullStack_Developer_Yaniv_Bialik_CV.docx",
   },
 ];
 
