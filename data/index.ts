@@ -11,7 +11,7 @@ export const gridItems = [
 
   {
     id: 2,
-    title: "",
+    title: "Check out my Blog",
     description: "",
     className: "lg:col-span-3 md:col-span-3 md:row-span-3",
     imgClassName: "",
@@ -67,7 +67,7 @@ export const projects = [
   {
     id: 5,
     title: "NextJs & Strapi Events App",
-    des: "Events app built with Next.js and Strapi.",
+    des: "Events application built with Next.js and Strapi.",
     img: "./Events.PNG",
     iconLists: ["./next.svg", "./strapi.svg","./mongodb.svg"],
     link: "https://github.com/Yanivv77/My-events-app-frontend",

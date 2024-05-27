@@ -2,6 +2,9 @@ import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/utils/cn";
+import { ToastContainer, toast ,Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 import { BackgroundGradientAnimation } from "./GradientBg";
@@ -49,8 +52,6 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
 
   const [copied, setCopied] = useState(false);
 
@@ -67,6 +68,10 @@ export const BentoGridItem = ({
     const text = "Yanivv77@Gmail.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
+  };
+
+  const handleBlogClick = () => {
+    toast.info('Blog is under construction.');
   };
 
   return (
@@ -123,7 +128,7 @@ export const BentoGridItem = ({
           </div>
 
           {id === 2 && (
-            <div className="flex justify-center items-center max-h-[200px]">
+            <div className="flex justify-center items-center max-h-[200px]" onClick={handleBlogClick}>
               <GridGlobe />
             </div>
           )}
@@ -147,6 +152,20 @@ export const BentoGridItem = ({
           )}
         </div>
       </div>
+      <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      limit={1}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss={false}
+      draggable={false}
+      pauseOnHover
+      theme="dark"
+      transition={Bounce}
+    />
     </div>
   );
 };
