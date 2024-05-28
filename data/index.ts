@@ -45,7 +45,7 @@ export const projects = [
     title: "Management-App-GraphQL",
     des: "Management application using GraphQL.",
     img: "./GraphQL.PNG",
-    iconLists: ["./react.svg", "./nodejs.svg","./GraphQL.svg","./mongodb.svg"],
+    iconLists: ["./react.svg", "./nodejs.svg","./graphql_icon.svg","./mongodb.svg"],
     link: "https://github.com/Yanivv77/Project-Management-App-GraphQL",
   },
   {
