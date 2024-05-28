@@ -27,8 +27,8 @@ const data: Contact[] = [
   {
     id: 4,
     name: "cv",
-    label: "download cv",
-    link: "/files/FullStack_Developer_Yaniv_Bialik_CV.docx",
+    label: "Download CV",
+    link: "/FullStack_Developer_Yaniv_Bialik_CV.docx",
   },
 ];
 

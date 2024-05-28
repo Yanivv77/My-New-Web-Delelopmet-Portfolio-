@@ -36,7 +36,7 @@ const Contacts: React.FC = () => {
                 className="text-black dark:text-white"
               />
             )}
-            <span className="text-sm md:text-base capitalize text-zinc-700 dark:text-white font-bold">
+            <span className="text-sm md:text-base text-zinc-700 dark:text-white font-bold">
               {contact.label}
             </span>
           </Link>
