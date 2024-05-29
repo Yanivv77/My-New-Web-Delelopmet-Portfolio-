@@ -7,11 +7,11 @@ interface SkillComponentProps {
 
 const SkillComponent: React.FC<SkillComponentProps> = ({ skill }) => {
   return (
-    <div className="flex items-center space-x-2 bg-zinc-100 dark:bg-zinc-800 px-3 py-2">
+    <div className="flex items-center space-x-2 bg-zinc-800 px-3 py-2">
       <div className="relative w-[25px] h-[25px]">
     <Image src={''} overrideSrc={skill.image} className="object-cover w-full h-full" alt={`${skill.name} logo`} />
       </div>
-      <span className="text-zinc-700 dark:text-white capitalize text-sm md:text-base font-bold">
+      <span className="text-white capitalize text-sm md:text-base font-bold">
         {skill.name}
       </span>
     </div>

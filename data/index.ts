@@ -6,7 +6,7 @@ export const navItems = [
   
 ];
 
-// todo add title Check out my Blog
+
 export const gridItems = [
 
   {

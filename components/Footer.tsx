@@ -16,7 +16,7 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
+        <h1 className="heading lg:max-w-[45vw] text-white">
           Looking for a Software developer?{" "}
           <span className="text-purple">Let&apos;s connect!</span>
         </h1>
@@ -33,7 +33,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="flex flex-col-reverse mt-16 md:flex-row md:justify-between md:items-center md:mt-6">
-        <p className="md:text-base text-sm md:font-normal font-light text-center md:text-left mb-6 md:mb-0">
+        <p className="md:text-base text-sm md:font-normal font-light text-center md:text-left mb-6 md:mb-0 text-white">
           Copyright © 2024 Yaniv Bialik
         </p>
 

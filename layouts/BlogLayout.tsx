@@ -29,12 +29,17 @@ const BlogLayout = ({
   return (
       <div
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background dark:bg-black-100 font-sans antialiased",
           inter.variable
         )}
       >
-        <Providers>
-          <div className="relative flex min-h-dvh flex-col bg-background">
+        <Providers
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-dvh flex-col bg-background dark:bg-black-100">
             <BlogHeader />
             <main className="flex-1">{children}</main>
           </div>

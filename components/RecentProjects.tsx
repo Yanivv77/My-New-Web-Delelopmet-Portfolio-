@@ -6,7 +6,7 @@ import Image from "next/image";
 const RecentProjects = () => {
   return (
     <div className="py-20">
-      <h1 className="heading" id="projects">
+      <h1 className="heading text-white " id="projects">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
@@ -14,7 +14,7 @@ const RecentProjects = () => {
         {projects.map((item) => (
           <a key={item.id} href={item.link} target="_blank" rel="noopener noreferrer">
             <div
-              className="lg:min-h-[32.5rem]  flex items-center justify-center sm:w-96 w-[80vw]"
+              className="lg:min-h-[32.5rem]  flex items-center justify-center sm:w-96 w-[80vw] text-white"
             >
               <PinContainer title={item.title}>
                 <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
