@@ -6,7 +6,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="w-full pt-20 pb-10 relative" id="contact">
-      {/* Background grid */}
+
       <div className="absolute left-0 -bottom-72 w-full min-h-96">
         <img
           src="/footer-grid.svg"
@@ -17,10 +17,12 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Looking for a Software developer? <span className="text-purple">Let&apos;s connect!</span>
+          Looking for a Software developer?{" "}
+          <span className="text-purple">Let&apos;s connect!</span>
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          Reach out to me today and let&apos;s discuss how I can help you achieve your goals.
+          Reach out to me today and let&apos;s discuss how I can help you
+          achieve your goals.
         </p>
         <a href="https://www.linkedin.com/messaging/thread/new?recipient=yanivv77">
           <MagicButton

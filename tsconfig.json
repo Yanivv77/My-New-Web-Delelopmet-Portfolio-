@@ -24,7 +24,8 @@
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "#site/content": ["./.velite"]
     }
   },
   "include": [

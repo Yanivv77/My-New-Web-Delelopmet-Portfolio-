@@ -1,3 +1,4 @@
+import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
@@ -19,7 +20,7 @@ const config = {
   prefix: "",
   theme: {
     fontFamily: {
-      sans: ["Nunito", "sans-serif"],
+      sans: ["var(--font-sans)","Nunito", "sans-serif", ...fontFamily.sans],
     },
     container: {
       center: true,
@@ -30,6 +31,7 @@ const config = {
      
     },
     extend: {
+      
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -176,7 +178,7 @@ const config = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
+    require("tailwindcss-animate"), require("@tailwindcss/typography"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(

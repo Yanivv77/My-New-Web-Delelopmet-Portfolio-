@@ -195,7 +195,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     globeRef.current
       .ringsData([])
       .ringColor((e: any) => (t: any) => e.color(t))
-      .ringMaxRadius(defaultProps.maxRings)
+      .ringMaxRadius(defaultProps?.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
         (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
