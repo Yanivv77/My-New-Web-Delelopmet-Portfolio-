@@ -11,7 +11,7 @@ export function BlogFooter() {
             <span className="sr-only">Mail</span>
             <Mail className="h-6 w-6" />
           </a>
-          <a target="_blank" rel="noreferrer" href={siteConfig.links.twitter}>
+          <a target="_blank" rel="noreferrer" href={siteConfig.links.github}>
             <span className="sr-only">Twitter</span>
             <Icons.twitter className="h-6 w-6" />
           </a>

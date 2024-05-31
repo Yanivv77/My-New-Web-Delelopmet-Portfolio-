@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 96%;
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -38,35 +38,35 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 220, 20%, 15%;  /* Cooler and slightly lighter */
+    --foreground: 0, 0%, 98%;     /* Bright for good contrast */
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 230, 15%, 20%;         /* Slightly bluer than the background */
+    --card-foreground: 0, 0%, 98%; /* White for readability */
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 230, 15%, 20%;      /* Same as card for consistency */
+    --popover-foreground: 0, 0%, 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 210, 30%, 28%;      /* Subdued blue for primary actions */
+    --primary-foreground: 230, 20%, 88%; /* Light blue for contrast */
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240, 10%, 25%;    /* Darker, more subdued */
+    --secondary-foreground: 0, 0%, 98%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 240, 7%, 20%;         /* Very subtle blue */
+    --muted-foreground: 240, 5%, 65%; /* Softer blue */
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 260, 20%, 25%;       /* A hint of purple to stand out */
+    --accent-foreground: 0, 0%, 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0, 50%, 40%;    /* Red but not too bright */
+    --destructive-foreground: 0, 0%, 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --color-svg: #ffffff;
-  }
+    --border: 0 0% 96%;
+    --input: 240, 10%, 25%;
+    --ring: 240, 20%, 80%;         /* Lighter for focus rings */
+    --color-svg: #ffffff;               /* White for SVGs for simplicity and contrast */
+}
 }
 
 @layer base {

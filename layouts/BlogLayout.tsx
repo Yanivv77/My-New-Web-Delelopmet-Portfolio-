@@ -4,8 +4,8 @@ import "../app/globals.css";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { BlogHeader } from "@/components/BlogHeader";
-import { Providers } from "@/components/providers";
 import { BlogFooter } from "@/components/BlogFooter";
+import { Providers } from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,25 +28,25 @@ const BlogLayout = ({
   children: React.ReactNode;
 }>)  => {
   return (
-      <div
-        className={cn(
-          "min-h-screen bg-background dark:bg-black-100 font-sans antialiased",
-          inter.variable
-        )}
-      >
+<div
+  className={cn(
+          "min-h-screen bg-background dark:bg-red-100 font-sans antialiased",
+    inter.variable
+  )}
+>
         <Providers
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-dvh flex-col bg-background dark:bg-black-100">
-            <BlogHeader />
-            <main className="flex-1">{children}</main>
-            <BlogFooter />
-          </div>
+    attribute="class"
+    defaultTheme="dark"
+    enableSystem
+    disableTransitionOnChange
+  >
+    <div className="relative flex min-h-dvh flex-col bg-background dark:bg-red-100 ">
+      <BlogHeader />
+      <main className="flex-1">{children}</main>
+      <BlogFooter />
+    </div>
         </Providers>
-      </div>
+</div>
   );
 }
 
