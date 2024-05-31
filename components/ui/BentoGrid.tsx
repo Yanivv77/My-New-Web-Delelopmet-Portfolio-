@@ -84,7 +84,7 @@ export const BentoGridItem = ({
         background: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`${id === 6 ? "flex justify-center" : ""} h-full`}>
+      <div className={`${id === 2 ? "flex justify-center" : ""} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -95,7 +95,7 @@ export const BentoGridItem = ({
           )}
         </div>
         <div
-          className={`absolute right-0 -bottom-5 ${id === 5 ? "w-full opacity-80" : ""
+          className={`absolute right-0 -bottom-5 ${id === 1 ? "w-full opacity-80" : ""
             }`}
         >
           {spareImg && (
@@ -106,7 +106,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        {id === 6 && (
+        {id === 2 && (
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
@@ -127,12 +127,12 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {id === 2 && (
+          {id === 1 && (
             <div className="flex justify-center items-center max-h-[200px]" onClick={handleBlogClick}>
               <GridGlobe />
             </div>
           )}
-          {id === 6 && (
+          {id === 2 && (
             <div className="mt-5 relative">
               <div
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
