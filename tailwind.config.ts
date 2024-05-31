@@ -54,6 +54,7 @@ const config = {
         },
         purple: "#0071C5",
         darkblue: "#002D62",
+        lightblue: "#00C7FD",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
