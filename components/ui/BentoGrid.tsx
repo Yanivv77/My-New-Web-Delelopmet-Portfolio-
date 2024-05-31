@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
@@ -11,6 +12,7 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
+import Link from "next/link";
 
 export const BentoGrid = ({
   className,
@@ -71,7 +73,8 @@ export const BentoGridItem = ({
   };
 
   const handleBlogClick = () => {
-    toast.info('Blog is under construction.');
+    // toast.info('Blog is under construction.');
+
   };
 
   return (
@@ -128,11 +131,12 @@ export const BentoGridItem = ({
           </div>
 
           {id === 1 && (
-    <div className="flex justify-center items-center w-[105%] h-[105%]" onClick={handleBlogClick}>
+            
+    <Link href="/blog" className="flex justify-center items-center w-[105%] h-[105%]" onClick={handleBlogClick}>
       <BackgroundGradientAnimation gradientBackgroundStart="color1" gradientBackgroundEnd="color2" className="w-[125%] h-[125%]">
         <GridGlobe />
       </BackgroundGradientAnimation>
-    </div>
+    </Link>
   )}
           {id === 2 && (
             <div className="mt-5 relative">

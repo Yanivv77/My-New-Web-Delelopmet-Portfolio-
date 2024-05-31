@@ -7,6 +7,9 @@ const nextConfig = {
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
   },
+  images: {
+    domains: ['cdn.mos.cms.futurecdn.net'], // Add the domain here
+  },
 };
 class VeliteWebpackPlugin {
   static started = false;
