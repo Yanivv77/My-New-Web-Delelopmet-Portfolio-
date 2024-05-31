@@ -10,7 +10,7 @@ export function MainNav() {
   const pathname = usePathname();
   return (
     <nav className="flex items-center space-x-4 lg:space-x-6">
-      <Link href="/" className="mr-6 flex items-center space-x-2">
+      <Link href="/blog" className="mr-6 flex items-center space-x-2">
         <Icons.logo className="h-8 w-8" />
         <span className="font-bold">{siteConfig.name}</span>
       </Link>

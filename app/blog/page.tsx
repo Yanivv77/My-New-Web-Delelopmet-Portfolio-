@@ -10,7 +10,6 @@ import { Metadata } from "next";
 import Image from 'next/image';
 import { Button } from "@/components/ui/button"
 import Link from 'next/link';
-import { buttonVariants } from "@/components/ui/button"
 
 
 export const metadata: Metadata = {
@@ -28,7 +27,7 @@ interface BlogPageProps {
 export default async function BlogMainPage({ searchParams }: BlogPageProps) {
   const currentPage = Number(searchParams?.page) || 1;
   const sortedPosts = sortPosts(posts.filter(post => post.published));
-  const totalPages = Math.ceil(sortedPosts.length / 5);  // Assuming 5 posts per page
+  const totalPages = Math.ceil(sortedPosts.length / 5);  
   const displayPosts = sortedPosts.slice(
     (currentPage - 1) * 5,
     currentPage * 5

@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Yaniv Software Blog ",
   url: "https://example.com",
+  metadataBase: 'https://yourdomain.com',
   description: "Nextjs 14 blog using velite, tailwind and shadcn",
   author: "Yaniv Bialik",
   links: {

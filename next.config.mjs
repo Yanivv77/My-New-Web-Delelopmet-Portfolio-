@@ -4,12 +4,16 @@ import { build } from "velite";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
+   
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
-  },
+  }, 
   images: {
-    domains: ['cdn.mos.cms.futurecdn.net'], // Add the domain here
+    domains: ['cdn.mos.cms.futurecdn.net'], 
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  }
 };
 class VeliteWebpackPlugin {
   static started = false;

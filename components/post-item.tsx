@@ -45,9 +45,9 @@ export function PostItem({
         ))}
       </div>
         </dl>
-        <Link
+        <Link 
           href={"/" + slug}
-          className={cn(buttonVariants({ variant: "link" }), "py-0")}
+          className={cn(buttonVariants(), "py-0")}
         >
           Read more →
         </Link>
