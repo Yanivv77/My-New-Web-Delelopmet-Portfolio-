@@ -115,7 +115,7 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+            "group-hover/bento:translate-x-0 transition duration-200 relative md:h-[107%] h-[110%] min-h-40 flex flex-col px-5 p-5 lg:p-10"
           )}
         >
           <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
@@ -128,10 +128,12 @@ export const BentoGridItem = ({
           </div>
 
           {id === 1 && (
-            <div className="flex justify-center items-center max-h-[200px]" onClick={handleBlogClick}>
-              <GridGlobe />
-            </div>
-          )}
+    <div className="flex justify-center items-center w-[105%] h-[105%]" onClick={handleBlogClick}>
+      <BackgroundGradientAnimation gradientBackgroundStart="color1" gradientBackgroundEnd="color2" className="w-[125%] h-[125%]">
+        <GridGlobe />
+      </BackgroundGradientAnimation>
+    </div>
+  )}
           {id === 2 && (
             <div className="mt-5 relative">
               <div
