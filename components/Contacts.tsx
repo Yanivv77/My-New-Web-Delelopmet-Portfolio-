@@ -5,12 +5,15 @@ import { MdEmail } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import data, { Contact } from "@/data/contacts";
 import SectionWrapper from "./SectionWrapper";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 
 const Contacts: React.FC = () => {
   return (
     <SectionWrapper>
-      <div className="flex flex-wrap items-center gap-5">
+       <HoverBorderGradient>
+      <div className="flex flex-wrap items-center justify-center gap-5">
+     
         {data.map((contact: Contact) => (
           <Link
             href={contact.link}
@@ -41,7 +44,9 @@ const Contacts: React.FC = () => {
             </span>
           </Link>
         ))}
+        
       </div>
+      </HoverBorderGradient>
     </SectionWrapper>
   );
 };

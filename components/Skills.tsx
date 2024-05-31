@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
       <Heading >skills</Heading>
       <div className="flex flex-wrap items-stretch gap-5">
         {data.map((skill: Skill) => (
-          <div className="flex-grow" key={skill.id}>
+          <div  key={skill.id}>
             <SkillComponent skill={skill} />
           </div>
         ))}

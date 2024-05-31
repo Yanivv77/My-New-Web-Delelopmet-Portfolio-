@@ -65,7 +65,7 @@ export const projects = [
   {
     id: 3,
     title: "World Trivia Battle",
-    des: "Location-based trivia battle game.",
+    des: "Location-based trivia battle online game.",
     img: "./TriviaBattle.PNG",
     iconLists: ["./react.svg", "./nodejs.svg","./socket-io.svg","./mongodb.svg"],
     link: "https://github.com/Yanivv77/Location-based-trivia-battle-game",
