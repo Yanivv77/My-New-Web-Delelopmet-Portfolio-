@@ -30,7 +30,7 @@ const BlogLayout = ({
   return (
 <div
   className={cn(
-          "min-h-screen bg-background dark:bg-red-100 font-sans antialiased",
+          "min-h-screen bg-background dark:bg-red-100 font-sans antialiased","flex flex-col min-h-screen",
     inter.variable
   )}
 >
@@ -40,9 +40,9 @@ const BlogLayout = ({
     enableSystem
     disableTransitionOnChange
   >
-    <div className="relative flex min-h-dvh flex-col bg-background dark:bg-red-100 ">
+    <div className="relative flex flex-col flex-1 min-h-dvh f bg-background dark:bg-red-100 ">
       <BlogHeader />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 dark:bg-grid-black/[0.08] bg-grid-small-black/[0.1]">{children}</main>
       <BlogFooter />
     </div>
         </Providers>

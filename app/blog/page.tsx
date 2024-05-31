@@ -41,18 +41,12 @@ export  default async function  BlogMainPage({ searchParams }: BlogPageProps) {
 
   return (
     <BlogLayout>
-   <div className="max-w-10xl py-6 lg:py-10 mx-auto px-20">
+   <div className="max-w-10xl dark:bg-grid-black/[0.08] bg-grid-small-black/[0.1]  py-6 lg:py-10 mx-auto px-20">
   
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="teal" />
-   
     
 
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-        <div className="flex-1 space-y-4">
+        <div className="flex-1  space-y-4">
           <h1 className="inline-block font-black text-4xl lg:text-5xl">Blog</h1>
           <p className="text-xl text-muted-foreground">
             My ramblings on all things web dev.
@@ -71,7 +65,7 @@ export  default async function  BlogMainPage({ searchParams }: BlogPageProps) {
           </CardContent>
         </Card>
       <div className="grid grid-cols-12 gap-3 mt-8">
-        <div className="col-span-12 col-start-1 sm:col-span-8">
+        <div className="col-span-12 col-start-1 sm:col-span-9">
           <hr />
           {displayPosts?.length > 0 ? (
             <ul className="flex flex-col">
@@ -98,7 +92,9 @@ export  default async function  BlogMainPage({ searchParams }: BlogPageProps) {
             className="justify-end mt-4"
           />
         </div>
-        
+        <div className="col-span-12 col-start-1 sm:col-span-3">
+         
+        </div>
       </div>
     </div>
     </BlogLayout>
