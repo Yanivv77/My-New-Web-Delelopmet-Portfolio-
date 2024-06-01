@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import BlogLayout from "@/layouts/BlogLayout";
+import { Tag } from "@/components/tag";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -72,15 +72,18 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <BlogLayout> <div className="max-w-10xl dark:bg-grid-black/[0.08] bg-grid-small-black/[0.1] py-6 lg:py-10 mx-auto px-5 lg:px-20"></div>
-    <article className="py-6 max-w-7xl mx-autopx-5 lg:px-20">
+    <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
       <h1 className="mb-2">{post.title}</h1>
+      <div className="flex gap-2 mb-2">
+        {post.tags?.map((tag) => (
+          <Tag tag={tag} key={tag} />
+        ))}
+      </div>
       {post.description ? (
         <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
       ) : null}
       <hr className="my-4" />
       <MDXContent code={post.body} />
     </article>
-    </BlogLayout>
   );
 }

@@ -9,7 +9,13 @@ const nextConfig = {
     return config;
   }, 
   images: {
-    domains: ['cdn.mos.cms.futurecdn.net'], 
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.mos.cms.futurecdn.net',
+        port: '',
+      },
+    ],
   },
   typescript: {
     ignoreBuildErrors: true,

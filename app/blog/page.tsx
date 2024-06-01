@@ -10,13 +10,12 @@ import { Metadata } from "next";
 import Image from 'next/image';
 import { Button } from "@/components/ui/button"
 import Link from 'next/link';
-
-
 export const metadata: Metadata = {
   title: "My blog",
   description: "This is a description",
 };
 
+const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
   searchParams: {
@@ -24,17 +23,18 @@ interface BlogPageProps {
   };
 }
 
-export default async function BlogMainPage({ searchParams }: BlogPageProps) {
+export default async function BlogPage({ searchParams }: BlogPageProps) {
   const currentPage = Number(searchParams?.page) || 1;
-  const sortedPosts = sortPosts(posts.filter(post => post.published));
-  const totalPages = Math.ceil(sortedPosts.length / 5);  
+  const sortedPosts = sortPosts(posts.filter((post) => post.published));
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
   const displayPosts = sortedPosts.slice(
-    (currentPage - 1) * 5,
-    currentPage * 5
+    POSTS_PER_PAGE * (currentPage - 1),
+    POSTS_PER_PAGE * currentPage
   );
+
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
-
   return (
     <BlogLayout>
       <div className="max-w-10xl dark:bg-grid-black/[0.08] bg-grid-small-black/[0.1] py-6 lg:py-10 mx-auto px-5 lg:px-20">
@@ -55,9 +55,9 @@ export default async function BlogMainPage({ searchParams }: BlogPageProps) {
                 <Tag key={tag} tag={tag} count={tags[tag]} />
               ))}
             </CardContent>
-           
+
           </Card>
-         
+
         </div>
         <div className="grid grid-cols-12 gap-3 mt-8">
           <div className="col-span-12 sm:col-span-9 mt-3">
@@ -76,17 +76,20 @@ export default async function BlogMainPage({ searchParams }: BlogPageProps) {
 
             {displayPosts.length > 0 ? (
               <ul className="flex flex-col mt-2">
-                {displayPosts.map(post => (
-                  <li key={post.slug}>
+{displayPosts.map((post) => {
+                const { slug, date, title, description, tags } = post;
+                return (
+                  <li key={slug}>
                     <PostItem
-                      slug={post.slug}
-                      date={post.date}
-                      title={post.title}
-                      description={post.description}
-                      tags={post.tags}
+                      slug={slug}
+                      date={date}
+                      title={title}
+                      description={description}
+                      tags={tags}
                     />
                   </li>
-                ))}
+                );
+              })}
               </ul>
             ) : (
               <p>Nothing to see here yet</p>
@@ -94,26 +97,26 @@ export default async function BlogMainPage({ searchParams }: BlogPageProps) {
             <QueryPagination totalPages={totalPages} className="justify-end mt-4" />
           </div>
           <div className="order-first sm:order-none col-span-12 sm:col-span-3 flex flex-col items-center">
-  <Image
-    src="https://cdn.mos.cms.futurecdn.net/EzgdmaCQuT84bgDL4fhXZS.jpg"
-    alt="Jordans"
-    height={400}
-    width={400}
-    className="object-contain"
-  />
-  <p className="text-base sm:text-xl text-center text-black mt-4 mb-2 dark:text-neutral-200">
-    My Software Development Blog
-  </p>
-  <p className="text-sm text-center text-neutral-600 dark:text-neutral-400">
-    This blog serves as my platform to learn and explain coding and web development concepts.
-  </p>
-  
-  <div className="flex justify-center w-full pt-2">
-    <Button asChild className="bg-lightblue dark:bg-darkblue">
-      <Link href="/">Check out my Portfolio</Link>
-    </Button>
-  </div>
-</div>
+            <Image
+              src="https://cdn.mos.cms.futurecdn.net/EzgdmaCQuT84bgDL4fhXZS.jpg"
+              alt="Jordans"
+              height={400}
+              width={400}
+              className="object-contain"
+            />
+            <p className="text-base sm:text-xl text-center text-black mt-4 mb-2 dark:text-neutral-200">
+              My Software Development Blog
+            </p>
+            <p className="text-sm text-center text-neutral-600 dark:text-neutral-400">
+              This blog serves as my platform to learn and explain coding and web development concepts.
+            </p>
+
+            <div className="flex justify-center w-full pt-2">
+              <Button asChild className="bg-lightblue dark:bg-darkblue">
+                <Link href="/">Check out my Portfolio</Link>
+              </Button>
+            </div>
+          </div>
         </div>
 
       </div>
