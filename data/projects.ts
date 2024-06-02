@@ -1,0 +1,68 @@
+export const projects = [
+  {
+    id: 8,
+    title: "CryptoNiv",
+    des: "Sending crypto in blockchain smart contract project",
+    img: "/CryptoNiv.webp",
+    iconLists: ["./react.svg", "./solidity.png"],
+    link: "https://yproject.online/",
+    githubLink: "https://github.com/Yanivv77/Cryptoniv"
+  },
+  {
+    id: 7,
+    title: "MERN ProShop",
+    des: "E-commerce platform built with the MERN stack.",
+    img: "/Proshop.PNG",
+    iconLists: ["./react.svg", "./nodejs.svg","./typescript.svg","./mongodb.svg"],
+    link: "https://github.com/Yanivv77/Mern-Stack-Ecommerce-Project",
+  },
+  {
+    id: 6,
+    title: "Management-App-GraphQL",
+    des: "Management application using GraphQL.",
+    img: "/GraphQL.PNG",
+    iconLists: ["./react.svg", "./nodejs.svg","./graphql_icon.svg","./mongodb.svg"],
+    link: "https://github.com/Yanivv77/Project-Management-App-GraphQL",
+  },
+  {
+    id: 5,
+    title: "World Trivia Battle",
+    des: "Location-based trivia battle online game.",
+    img: "/TriviaBattle.PNG",
+    iconLists: ["./react.svg", "./nodejs.svg","./socket-io.svg","./mongodb.svg"],
+    link: "https://github.com/Yanivv77/Location-based-trivia-battle-game",
+  },
+  {
+    id: 4,
+    title: "Microservices Blog",
+    des: "Blog application built with microservices architecture.",
+    img: "/Microservices-Blog.PNG",
+    iconLists: ["./react.svg", "./nodejs.svg","./docker.svg","./mongodb.svg"],
+    link: "https://github.com/Yanivv77/Microservices-Blog",
+  },
+  {
+    id: 3,
+    title: "NextJs & Strapi Events App",
+    des: "Events application built with Next.js and Strapi.",
+    img: "/Events.PNG",
+    iconLists: ["./next.svg", "./strapi.svg","./mongodb.svg"],
+    link: "https://github.com/Yanivv77/My-events-app-frontend",
+  },
+  {
+    id: 2,
+    title: "MERN GoalsApp",
+    des: "Goals tracking application built with the MERN stack.",
+    img: "/YanivsGoalsApp.PNG",
+    iconLists: ["./react.svg", "./nodejs.svg","./mongodb.svg"],
+    link: "https://github.com/Yanivv77/Mern-Project",
+  },
+  {
+    id: 1,
+    title: "React FeedbackApp",
+    des: "Feedback application built with React.",
+    img: "/Feedback.PNG",
+    iconLists: ["./react.svg",],
+    link: "https://github.com/Yanivv77/React-feedback-app",
+  },
+ 
+];

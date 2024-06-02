@@ -1,30 +1,46 @@
-import { FaLocationArrow } from "react-icons/fa6";
-import { projects } from "@/data";
+import { useState, useEffect } from 'react';
+import { projects } from "@/data/projects";
 import { PinContainer } from "./ui/Pin";
 import Image from "next/image";
+import Link from "next/link";
 
 const RecentProjects = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);  
+  }, []);
+
   return (
-    <div className="py-20">
+    <div className="py-20" >
       <h1 className="heading text-white " id="projects">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center gap-16 mt-10">
         {projects.map((item) => (
-          <a key={item.id} href={item.link} target="_blank" rel="noopener noreferrer">
-            <div
-              className="lg:min-h-[32.5rem]  flex items-center justify-center sm:w-96 w-[80vw] text-white"
-            >
+          <a
+            key={item.id}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="lg:min-h-[32.5rem]  flex items-center justify-center sm:w-96 w-[80vw] text-white">
               <PinContainer title={item.title}>
                 <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                   <div
-                    className="relative w-full h-full overflow-hidden lg:rounded-3xl"
+                    className="relative w-full h-full overflow-hidden lg:rounded-3xl items-center justify-center"
                     style={{ backgroundColor: "#13162D" }}
                   >
                     <img src="/bg.png" alt="bgimg" />
                   </div>
-                  <img src={item.img} alt="cover" className="z-10 absolute bottom-0 h-[90%]" />
+                  <Image
+                    src={item.img}
+                    alt="cover"
+                    className="z-10 absolute bottom-0 pt-5 pb-5 "
+                    fill
+                    
+                  />
                 </div>
 
                 <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -48,17 +64,24 @@ const RecentProjects = () => {
                           transform: `translateX(-${5 * index + 2}px)`,
                         }}
                       >
-                        <Image src={""} overrideSrc={icon} alt={`icon${index}`} className="p-2" />
+                        <Image
+                          src={""}
+                          overrideSrc={icon}
+                          alt={`icon${index}`}
+                          className="p-2"
+                        />
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex justify-center items-center">
-                    <p className="flex lg:text-lg md:text-2xs text-2xs text-purple">
-                      Check the Project
-                    </p>
-                    <FaLocationArrow className="ms-3" color="#CBACF9" />
-                  </div>
+                  {isClient && (
+          <Link 
+            href={item?.githubLink || "#"}
+            className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer"
+          >
+            Github
+          </Link>
+        )}
                 </div>
               </PinContainer>
             </div>
