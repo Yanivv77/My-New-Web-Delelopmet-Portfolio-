@@ -26,7 +26,7 @@ export function PostItem({
       <div>
    
         <h2 className="text-2xl font-bold">
-          <Link href={"/"}>{title}</Link>
+          <Link href={"/" + slug}>{title}</Link>
         </h2>
       </div>
       

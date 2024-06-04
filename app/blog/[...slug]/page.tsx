@@ -6,6 +6,7 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
+import BlogLayout from "@/layouts/BlogLayout";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -72,7 +73,8 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="container py-6 prose dark:prose-invert max-w-3xl mx-auto">
+    <BlogLayout>
+    <article className="container py-6 prose dark:prose-invert max-w-7xl mx-auto">
       <h1 className="mb-2">{post.title}</h1>
       <div className="flex gap-2 mb-2">
         {post.tags?.map((tag) => (
@@ -85,5 +87,6 @@ export default async function PostPage({ params }: PostPageProps) {
       <hr className="my-4" />
       <MDXContent code={post.body} />
     </article>
+    </BlogLayout>
   );
 }
