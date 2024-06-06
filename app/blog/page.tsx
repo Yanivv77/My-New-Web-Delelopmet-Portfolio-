@@ -37,13 +37,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const sortedTags = sortTagsByCount(tags);
   return (
     <BlogLayout>
-      <div className="max-w-10xl dark:bg-grid-black/[0.08] bg-grid-small-black/[0.1] py-6 lg:py-10 mx-auto px-5 lg:px-20">
-        <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-          <div className="flex-1 space-y-4">
-            <h1 className="inline-block font-black text-4xl lg:text-5xl">Blog</h1>
-
-          </div>
-        </div>
+<div className="max-w-7xl bg-grid-small-black/[0.1] py-6 lg:py-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
+      <h1 className="font-black text-4xl lg:text-5xl">Blog</h1>
+    </div>
         <br />
         <div>
           <Card className="hidden sm:block col-span-12 sm:col-span-4 sm:col-start-9 sm:row-start-1 h-fit">
