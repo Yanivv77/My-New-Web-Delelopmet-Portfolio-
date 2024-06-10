@@ -3,8 +3,7 @@ import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/utils/cn";
-import { ToastContainer, toast ,Bounce } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -13,6 +12,7 @@ import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import Link from "next/link";
+import Image from "next/image";
 
 export const BentoGrid = ({
   className,
@@ -90,10 +90,11 @@ export const BentoGridItem = ({
       <div className={`${id === 2 ? "flex justify-center" : ""} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <img
+            <Image
               src={img}
-              alt={img}
+              alt={String(title) || String(img)}
               className={cn(imgClassName, "object-cover object-center")}
+              fill
             />
           )}
         </div>
@@ -102,10 +103,11 @@ export const BentoGridItem = ({
             }`}
         >
           {spareImg && (
-            <img
+            <Image
               src={spareImg}
               alt={spareImg}
               className="object-cover object-center w-full h-full"
+              fill
             />
           )}
         </div>
@@ -132,7 +134,7 @@ export const BentoGridItem = ({
 
           {id === 1 && (
             
-    <Link href="/blog" className="flex justify-center items-center w-[105%] h-[105%]" onClick={handleBlogClick}>
+    <Link href="/blog" className="flex justify-center items-center w-[105%] h-[105%]"  onClick={handleBlogClick}>
       <BackgroundGradientAnimation gradientBackgroundStart="color1" gradientBackgroundEnd="color2" className="w-[125%] h-[125%]">
         <GridGlobe />
       </BackgroundGradientAnimation>
@@ -158,20 +160,7 @@ export const BentoGridItem = ({
           )}
         </div>
       </div>
-      <ToastContainer
-      position="top-center"
-      autoClose={2000}
-      limit={1}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss={false}
-      draggable={false}
-      pauseOnHover
-      theme="dark"
-      transition={Bounce}
-    />
+     
     </div>
   );
 };
