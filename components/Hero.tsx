@@ -5,6 +5,7 @@ import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 const MagicButton = lazy(() => import("./ui/MagicButton"));
 import Skills from "./Skills";
 import Contacts from "./Contacts";
+import About from './About';
 
 const Hero = () => {
   return (
@@ -31,7 +32,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="flex justify-center relative mb-20 z-10">
+        <div className="flex justify-center relative mb-5 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
             <TextGenerateEffect
               words="Hello. I'm Yaniv,
@@ -40,16 +41,10 @@ const Hero = () => {
             />
 
             <Contacts />
-
+            <About />
             <Skills />
+           
 
-            <a href="#projects">
-              <MagicButton
-                title="Show my work"
-                icon={<FaLocationArrow />}
-                position="right"
-              />
-            </a>
           </div>
         </div>
       </Suspense>

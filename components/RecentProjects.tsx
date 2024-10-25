@@ -21,7 +21,7 @@ const RecentProjects = () => {
         <Image
           src={icon}
           alt={`icon${index}`}
-          className="p-2"
+          className="p-2 object-contain"
           loading="lazy"
           fill
         />
@@ -31,10 +31,11 @@ const RecentProjects = () => {
 
   return (
     <div className="py-20">
-      <h1 className="heading text-white" id="projects">
-        A small selection of{" "}
-        <span className="text-purple">recent projects</span>
-      </h1>
+      <div className="parent-container relative z-[999]">
+        <h1 className="heading text-white" id="projects">
+          A small selection of <span className="text-purple">recent projects</span>
+        </h1>
+      </div>
       <div className="flex flex-wrap items-center justify-center gap-16 mt-10">
         {projects.map((item) => (
           <a
@@ -47,15 +48,21 @@ const RecentProjects = () => {
               <PinContainer title={item.title}>
                 <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                   <div
-                    className="relative w-full h-full overflow-hidden lg:rounded-3xl items-center justify-center"
+                    className="relative w-full h-full overflow-hidden lg:rounded-3xl flex items-center justify-center"
                     style={{ backgroundColor: "#13162D" }}
                   >
-                    <Image src="/bg.png" alt="bgimg" fill loading="lazy" />
+                    <Image 
+                      src="/bg.png" 
+                      alt="bgimg" 
+                      fill 
+                      loading="lazy" 
+                      className="object-cover"
+                    />
                   </div>
                   <Image
                     src={item.img}
                     alt="cover"
-                    className="z-10 absolute bottom-0 pt-5 pb-5"
+                    className="z-10 absolute bottom-0 pt-5 pb-5 object-cover"
                     fill
                     loading="lazy"
                   />

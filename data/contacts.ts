@@ -24,12 +24,6 @@ const data: Contact[] = [
     label: "email",
     link: "mailto:Yanivv77@gmail.com",
   },
-  {
-    id: 4,
-    name: "cv",
-    label: "Download CV",
-    link: "/FullStack_Developer_Yaniv_Bialik_CV.pdf",
-  },
 ];
 
 export default data;
