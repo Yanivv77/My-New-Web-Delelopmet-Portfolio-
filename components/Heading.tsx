@@ -6,7 +6,7 @@ interface HeadingProps {
 
 const Heading: React.FC<HeadingProps> = ({ children }) => {
   return (
-    <h3 className="capitalize text-base md:text-lg text-zinc-400 font-bold mb-3">
+    <h3 className="capitalize text-base md:text-lg text-zinc-400 relative z-index-10">
       {children}
     </h3>
   );
