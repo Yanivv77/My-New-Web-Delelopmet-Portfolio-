@@ -25,14 +25,16 @@ export const TextGenerateEffect = ({
     <div>
       {wordsArray.map((word, idx) => (
         <motion.span
-          key={idx}
-          custom={idx}
-          initial={{ y: 20, opacity: 0 }}
-          animate={controls}
-          className={`${idx > 3 ? "text-purple" : "text-white"}`}
-        >
-          {word}{" "}
-        </motion.span>
+        key={idx}
+        custom={idx}
+        initial={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, delay: idx * 0.15 }}
+        className={`${idx > 3 ? "text-purple" : "text-white"}`}
+      >
+        {word}{" "}
+      </motion.span>
       ))}
     </div>
   );
