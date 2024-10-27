@@ -65,6 +65,8 @@ const RecentProjects = () => {
                     className="z-10 absolute bottom-0 pt-5 pb-5 object-cover"
                     fill
                     loading="lazy"
+                    priority={false}
+                    quality={75}
                   />
                 </div>
 

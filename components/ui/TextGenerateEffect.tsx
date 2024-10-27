@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { cn } from "@/utils/cn";
 
@@ -11,26 +11,30 @@ export const TextGenerateEffect = ({
   className?: string;
 }) => {
   const controls = useAnimation();
-  const wordsArray = useMemo(() => words.split(" "), [words]);
+  const wordsArray = words.split(" ");
 
   useEffect(() => {
-    controls.start(i => ({
+    controls.start((i) => ({
+      y: 0,
       opacity: 1,
-      transition: { duration: 2, delay: i * 0.2 },
+      transition: { duration: 1.5, delay: i * 0.15 },
     }));
   }, [words, controls]);
 
   const renderWords = () => (
-    <motion.div initial={{ opacity: 0 }} animate={controls}>
+    <div>
       {wordsArray.map((word, idx) => (
         <motion.span
-          key={idx} 
+          key={idx}
+          custom={idx}
+          initial={{ y: 20, opacity: 0 }}
+          animate={controls}
           className={`${idx > 3 ? "text-purple" : "text-white"}`}
         >
           {word}{" "}
         </motion.span>
       ))}
-    </motion.div>
+    </div>
   );
 
   return (
