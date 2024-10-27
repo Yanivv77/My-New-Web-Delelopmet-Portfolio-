@@ -24,6 +24,7 @@ export const projects = [
     img: "/project_images/Proshop.webp",
     iconLists: ["/project_icons/react.svg", "/project_icons/nodejs.svg","/project_icons/typescript.svg","/project_icons/mongodb.svg"],
     link: "https://github.com/Yanivv77/Mern-Stack-Ecommerce-Project",
+    githubLink: "https://github.com/Yanivv77/Mern-Stack-Ecommerce-Project"
   },
   {
     id: 2,
@@ -32,6 +33,7 @@ export const projects = [
     img: "/project_images/GraphQL.webp",
     iconLists: ["/project_icons/react.svg", "/project_icons/nodejs.svg","/project_icons/graphql_icon.svg","/project_icons/mongodb.svg"],
     link: "https://github.com/Yanivv77/Project-Management-App-GraphQL",
+    githubLink: "https://github.com/Yanivv77/Project-Management-App-GraphQL"
   },
   {
     id: 1,
@@ -40,6 +42,7 @@ export const projects = [
     img: "/project_images/Microservices-Blog.webp",
     iconLists: ["/project_icons/react.svg", "/project_icons/nodejs.svg","/project_icons/docker.svg","/project_icons/mongodb.svg"],
     link: "https://github.com/Yanivv77/Microservices-Blog",
+    githubLink: "https://github.com/Yanivv77/Microservices-Blog"
   },
  
  
