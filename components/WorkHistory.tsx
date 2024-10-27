@@ -27,7 +27,7 @@ const WorkHistory = () => {
       <div className="mb-10">
         <Heading>Work History</Heading>
         {data.map((work: Work) => (
-          <div className="mt-6 flex gap-x-8 relative z-index-10" key={work.id}>
+          <div className="mt-6 flex gap-x-8 relative z-index-10 border-t py-7  border-zinc-800" key={work.id}>
             <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden border dark:border-zinc-700">
               <Image
                 src={work.image}
@@ -57,11 +57,11 @@ const WorkHistory = () => {
               )}
               {work.options && (
                 <div className="mt-2">
-                  <ul className="list-disc pl-5 space-y-2">
+                  <ul className="list-disc pl-5 space-y-2 " >
                     {work.options?.map((option: string, index: number) => (
                       <li
                         key={index}
-                        className="text-zinc-900 text-base font-semibold dark:text-zinc-100"
+                        className="text-zinc-900 text-base font-semibold dark:text-zinc-100 "
                       >
                         {option}
                       </li>

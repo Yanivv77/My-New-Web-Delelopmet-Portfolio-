@@ -26,9 +26,9 @@ const Footer = () => {
         <Image
           src="/footer-grid.svg"
           alt="Grid pattern"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-50"
+          fill
+          style={{ objectFit: "cover" }}
+          className="opacity-60"
         />
       </div>
 

@@ -6,7 +6,7 @@ interface SectionWrapperProps {
 
 const SectionWrapper: React.FC<SectionWrapperProps> = ({ children }) => {
   return (
-    <section className="border-t py-7 border-zinc-800">
+    <section className=" py-7 border-zinc-800">
       {children}
     </section>
   );
