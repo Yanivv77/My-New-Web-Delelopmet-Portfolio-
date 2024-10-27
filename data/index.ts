@@ -50,12 +50,12 @@ export const blogItem =
 export const socialMedia = [
   {
     id: 1,
-    img: "/git.svg",
+    img: "/github.svg",
     link: "https://github.com/Yanivv77/"
   },
   {
     id: 3,
-    img: "/link.svg",
+    img: "/linkedin.svg",
     link: "http://linkedin.com/in/yanivv77"
   },
 ];

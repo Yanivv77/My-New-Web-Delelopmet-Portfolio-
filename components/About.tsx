@@ -10,7 +10,7 @@ const About = () => {
         <div className="md:w-2/3">
           <Heading>about</Heading>
           
-          <h1 className="mt-3 text-base md:text-xl font-semibold text-black dark:text-zinc-100">
+          <h1 className="mt-3 text-base md:text-xl font-semibold  text-zinc-100">
             {data.bio}
           </h1>
         </div>

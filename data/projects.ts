@@ -4,7 +4,7 @@ export const projects = [
     title: "Podniv",
     des: "SaaS platform that creates podcasts from text-to-speech with OpenAI.",
     img: "/project_images/podniv.webp",  
-    iconLists: ["/project_icons/next.svg","/project_icons/typescript.svg","convex.svg","/project_icons/clerck.webp", "/project_icons/openai.svg"],  
+    iconLists: ["/project_icons/next.svg","/project_icons/typescript.svg","project_icons/convex.svg","/project_icons/clerck.webp", "/project_icons/openai.svg"],  
     link: "https://pod-niv.vercel.app/",
     githubLink: "https://github.com/Yanivv77/PodNiv"
   },

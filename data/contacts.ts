@@ -9,7 +9,7 @@ const data: Contact[] = [
   {
     id: 1,
     name: "github",
-    label: "github",
+    label: "Github",
     link: "http://github.com/yanivv77",
   },
   {
@@ -21,7 +21,7 @@ const data: Contact[] = [
   {
     id: 3,
     name: "email",
-    label: "email",
+    label: "Email",
     link: "mailto:Yanivv77@gmail.com",
   },
 ];

@@ -38,7 +38,7 @@ const data = [
     skills: [
       { id: 3, name: "Python", image: "/skills/python.webp" },
       { id: 31, name: "Pytest", image: "/skills/pytest.webp" },
-      { id: 30, name: "Linux", image: "/skills/linux.webp" }
+      { id: 30, name: "Linux", image: "/skills/linux.svg" }
     ],
     
   },
