@@ -4,30 +4,47 @@ import SectionWrapper from "./SectionWrapper";
 import data from "../data/work";
 import SkillComponent from "./SkillComponent";
 
+// Define the Work interface
+interface Skill {
+  id: number;
+  name: string;
+  image: string;
+}
+
+interface Work {
+  id: number;
+  image: string;
+  company: string;
+  role: string;
+  date: string;
+  skills: Skill[];
+  options?: string[]; 
+}
+
 const WorkHistory = () => {
   return (
     <SectionWrapper>
       <div className="mb-10">
         <Heading>Work History</Heading>
-        {data.map((work) => (
+        {data.map((work: Work) => (
           <div className="mt-6 flex gap-x-8 relative z-index-10" key={work.id}>
             <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden border dark:border-zinc-700">
               <Image
                 src={work.image}
                 fill
-                className="w-full h-full object-cover"
+                className="rounded-full object-cover border-2 border-cyan-500"
                 alt={`${work.company} Logo`}
               />
             </div>
             <div className="flex-1">
-              <h2 className="text-black dark:text-white capitalize font-bold text-base">
+              <h2 className="text-white capitalize font-bold text-base">
                 {work.role}
               </h2>
               <span className="capitalize text-sm font-bold text-zinc-100">
                 {work.company}
               </span>
               <div className="flex items-center gap-x-1">
-                <span className="text-black dark:text-white capitalize text-sm font-bold mt-2">
+                <span className="text-white capitalize text-sm font-bold mt-2">
                   {work.date}
                 </span>
               </div>
@@ -41,7 +58,7 @@ const WorkHistory = () => {
               {work.options && (
                 <div className="mt-2">
                   <ul className="list-disc pl-5 space-y-2">
-                    {work.options.map((option: string, index: number) => (
+                    {work.options?.map((option: string, index: number) => (
                       <li
                         key={index}
                         className="text-zinc-900 text-base font-semibold dark:text-zinc-100"
