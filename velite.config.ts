@@ -26,7 +26,7 @@ const posts = defineCollection({
 
 export default defineConfig({
   root: "content",
-  strict: false,
+  strict: true,
   output: {
     data: ".velite",
     assets: "public/static",

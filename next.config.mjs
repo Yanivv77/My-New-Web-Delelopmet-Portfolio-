@@ -4,7 +4,6 @@ import { build } from "velite";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
-   
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
   }, 
@@ -17,9 +16,19 @@ const nextConfig = {
       },
     ],
   },
+  logging: {
+    fetches: { fullUrl: true }
+  },
+  experimental: {
+    typedRoutes: true
+  },
   typescript: {
     ignoreBuildErrors: true,
-  }
+  },
+  webpack: (config) => {
+    config.plugins.push(new VeliteWebpackPlugin());
+    return config;
+  } 
 };
 class VeliteWebpackPlugin {
   static started = false;
