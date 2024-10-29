@@ -52,6 +52,12 @@ const config = {
         blue: {
           "100": "#E4ECFF",
         },
+        cardbg: {
+          "100":  "#2B2D36",
+        },
+        textwhite: {
+          "100": "#ffffff",
+        },
         purple: "#0071C5",
         darkblue: "#002D62",
         lightblue: "#00C7FD",

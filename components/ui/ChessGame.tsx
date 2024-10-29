@@ -39,7 +39,7 @@ const boardTheme = {
 }
 
 const DEFAULT_SIZES: { mobile: number; desktop: number } = {
-  mobile: 300,
+  mobile: 250,
   desktop: 480,
 }
 
@@ -301,12 +301,12 @@ export default function ChessGame() {
       {!showGame ? (
         <div className="text-center">
           <FloatingKnight onClick={() => setShowGame(true)} />
-          <p className="mt-4 text-lg font-semibold">
+          <p className="mt-4 text-lg font-semibold text-textwhite-100">
             Click the knight to play chess
           </p>
         </div>
       ) : (
-        <Card className="w-full max-w-3xl relative">
+        <Card className="w-full max-w-3xl relative bg-cardbg-100 grid place-items-center justify-items-center">
           <Button
             onClick={closeGame}
             className="absolute top-2 right-2 p-2"
@@ -316,7 +316,7 @@ export default function ChessGame() {
             <X className="h-4 w-4" />
           </Button>
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center">
+            <CardTitle className="text-2xl font-bold text-center text-textwhite-100">
               Chess Game
             </CardTitle>
           </CardHeader>
