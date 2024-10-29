@@ -30,7 +30,7 @@ const RecentProjects = () => {
   };
 
   return (
-    <div className="py-20">
+    <div className="pb-20">
       <div className="parent-container relative z-[999]">
         <h1 className="heading text-white" id="projects">
           A small selection of <span className="text-purple">recent projects</span>
@@ -87,9 +87,14 @@ const RecentProjects = () => {
                   </div>
 
                   {isClient && (
-                    <Link href={item?.githubLink || "#"} className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer">
+                    <a
+                      href={item?.githubLink || "#"}
+                      className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Github
-                    </Link>
+                    </a>
                   )}
                 </div>
               </PinContainer>

@@ -7,6 +7,8 @@ import RecentProjects from "@/components/RecentProjects";
 import Footer from "@/components/Footer";
 import WorkHistory from "@/components/WorkHistory";
 
+import ChessGame from "@/components/ui/ChessGame";
+
 
 const Home = () => {
   return (
@@ -19,6 +21,7 @@ const Home = () => {
         <Hero />
         <WorkHistory />
         <Grid />
+        <ChessGame />
         <RecentProjects />
         <Footer />
       </div>
