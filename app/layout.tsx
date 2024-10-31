@@ -4,6 +4,7 @@ import { ThemeProvider } from "./provider";
 import { cn } from "@/lib/utils";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter, Nunito, Poppins } from 'next/font/google';
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"],variable: "--font-sans" });
 
@@ -18,7 +19,6 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Yaniv's Portfolio",
-  description: "Modern & Minimal Portfolio",
 };
 
 export const viewport: Viewport = {
@@ -54,6 +54,7 @@ export default function RootLayout({
         >
           {children}
           <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
