@@ -38,7 +38,7 @@ const Hero = () => {
               className="text-center text-[20px] md:text-5xl lg:text-6xl"
             />
 
-            <Contacts />
+            
             <About />
             <Skills />
            

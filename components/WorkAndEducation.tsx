@@ -50,7 +50,7 @@ const WorkHistory = ({ data }: { data: Work[] }) => (
             />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-bold">{work.role}</h3>
+            <h3 className="text-lg text-textwhite-100 font-bold">{work.role}</h3>
             <span className="text-sm font-medium text-muted-foreground">{work.company}</span>
             <div className="text-sm text-muted-foreground mt-1">{work.date}</div>
             {work.skills && (
@@ -88,10 +88,10 @@ const Education = ({ data }: { data: Education[] }) => (
             />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-bold">{edu.degree}</h3>
+            <h3 className="text-lg text-textwhite-100 font-bold">{edu.degree}</h3>
             <span className="text-sm font-medium text-muted-foreground">{edu.institution}</span>
             <div className="text-sm text-muted-foreground mt-1">{edu.date}</div>
-            {edu.description && <p className="mt-2 text-sm">{edu.description}</p>}
+            {edu.description && <p className="mt-2 text-textwhite-100 text-sm">{edu.description}</p>}
           </div>
         </CardContent>
       </Card>
@@ -104,7 +104,7 @@ export default function WorkAndEducation() {
 
   return (
     <SectionWrapper>
-      <div className="mb-10">
+      <div className="mb-10 relative z-999">
         <Heading>Experience and Education</Heading>
         <div className="flex space-x-2 mt-4 mb-6">
           <Button

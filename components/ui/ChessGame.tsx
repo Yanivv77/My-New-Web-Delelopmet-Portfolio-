@@ -299,12 +299,12 @@ export default function ChessGame() {
   return (
     <div className="flex justify-center items-center py-10 px-4">
       {!showGame ? (
-        <div className="text-center">
+        <Card className="text-center">
           <FloatingKnight onClick={() => setShowGame(true)} />
           <p className="mt-4 text-lg font-semibold text-textwhite-100">
             Click the knight to play chess
           </p>
-        </div>
+        </Card>
       ) : (
         <Card className="w-full max-w-3xl relative bg-cardbg-100 grid place-items-center justify-items-center">
           <Button
@@ -341,7 +341,7 @@ export default function ChessGame() {
                     variant={isThinking ? "secondary" : "outline"}
                     className="text-lg p-2"
                   >
-                    {isThinking ? "Computer is thinking..." : gameStatus}
+                    {isThinking ? "Computer turn" : gameStatus}
                   </Badge>
                 </div>
                 <div className="flex flex-col justify-center gap-2">

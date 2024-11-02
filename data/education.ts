@@ -2,8 +2,8 @@ const educationData = [
   {
     id: 1,
     image: "/workAndEducation/zionet.webp",
-    institution: "ZioNet, Full Stack with Cloud Technologies Bootcamp",
-    degree: "",
+    degree: "ZioNet, Full Stack with Cloud Technologies Bootcamp",
+    institution: "",
     date: "Aug 2021 – May 2022",
     description: "Completed an 800-hour intensive course, mastering technologies including C#, Git, Docker, CI/CD, React, TypeScript, Node.js, Express, and MongoDB."
   },
