@@ -1,7 +1,7 @@
 const data = [
   {
     id: 1,
-    image: "/work/plasbit.webp",
+    image: "/workAndEducation/plasbit.webp",
     company: "PlasBit",
     role: "Full Stack Developer (70% Frontend, 30% Backend)",
     date: "07/2023 - 07/2024",
@@ -17,7 +17,7 @@ const data = [
   },
   {
     id: 2,
-    image: "/work/zionet.webp",
+    image: "/workAndEducation/zionet.webp",
     company: "ZioNet",
     role: "Full Stack Developer",
     date: "05/2022 - 06/2023",
@@ -31,7 +31,7 @@ const data = [
   },
   {
     id: 3,
-    image: "/work/nogacs.webp",
+    image: "/workAndEducation/nogacs.webp",
     company: "NogaCS",
     role: "Python Developer",
     date: "05/2022 - 11/2022",
