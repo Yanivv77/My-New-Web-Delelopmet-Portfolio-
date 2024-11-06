@@ -1,5 +1,14 @@
 export const projects = [
   {
+    id: 6,  
+    title: "FormCraftAI",
+    des: "Instantly create customizable forms with AI.",
+    img: "/project_images/formcraftai.webp",  
+    iconLists: ["/project_icons/next.svg","/project_icons/typescript.svg","project_icons/postgresql.svg","/project_icons/drizzleorm.png", "/project_icons/gemini.svg"],  
+    link: "https://form-craft-ai-sooty.vercel.app/",
+    githubLink: "https://github.com/Yanivv77/FormCraftAI"
+  },
+  {
     id: 5,  
     title: "Podniv",
     des: "SaaS platform that creates podcasts from text-to-speech with OpenAI.",
