@@ -40,33 +40,40 @@ const RecentProjects = () => {
         {projects.map((item) => (
           <a
             key={item.id}
+             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="lg:min-h-[32.5rem] flex items-center justify-center sm:w-96 w-[80vw] text-white">
+           
               <PinContainer title={item.title}>
-                <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
+                <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[25vh] lg:h-[30vh] mb-10 group">
                   <div
-                    className="relative w-full h-full overflow-hidden lg:rounded-3xl flex items-center justify-center"
+                    className="relative w-full h-full overflow-hidden rounded-2xl lg:rounded-3xl"
                     style={{ backgroundColor: "#13162D" }}
                   >
-                    <Image 
-                      src="/bg.png" 
-                      alt="bgimg" 
-                      fill 
-                      loading="lazy" 
-                      className="object-cover"
+                    <Image
+                      src="/bg.png"
+                      alt="bgimg"
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-300"
+                      fill
+                      priority
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <Image
                     src={item.img}
                     alt="cover"
-                    className="z-10 absolute bottom-0 pt-5 pb-5 object-cover"
-                    fill
-                    loading="lazy"
-                    priority={false}
-                    quality={75}
+                    width={500}
+                    height={300}
+                    className="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                      sm:hover:scale-110 hover:scale-105 transition-all duration-500 ease-out
+                      sm:group-hover:-translate-y-[45%] group-hover:-translate-y-[48%] group-hover:rotate-2
+                      hover:drop-shadow-[0_35px_35px_rgba(123,97,255,0.25)]"
+                    style={{
+                      maxWidth: '85%',
+                      filter: 'drop-shadow(0 20px 25px rgba(0, 0, 0, 0.4))'
+                    }}
                   />
                 </div>
 
@@ -98,7 +105,7 @@ const RecentProjects = () => {
                   )}
                 </div>
               </PinContainer>
-            </div>
+          
           </a>
         ))}
       </div>
