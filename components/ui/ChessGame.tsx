@@ -10,6 +10,7 @@ import { RefreshCw, RotateCcw, X } from 'lucide-react'
 import { Canvas, extend } from '@react-three/fiber'
 import { OrbitControls, Float, Environment } from '@react-three/drei'
 import ChessKnight from './ChessKnight'
+import GameCanvasCard from './GameCanvasCard'
 
 // Extend R3F with OrbitControls
 extend({ OrbitControls })
@@ -46,15 +47,15 @@ const DEFAULT_SIZES: { mobile: number; desktop: number } = {
 // Floating Knight component with proper disposal handling
 function FloatingKnight({ onClick }: { onClick: () => void }) {
   const [canvasSize, setCanvasSize] = useState({ 
-    width: typeof window !== 'undefined' ? Math.min(window.innerWidth * 0.8, 600) : 400,
-    height: typeof window !== 'undefined' ? Math.min(window.innerHeight * 0.6, 600) : 400
+    width: typeof window !== 'undefined' ? Math.min(window.innerWidth * 0.8, 400) : 400,
+    height: 400
   })
 
   useEffect(() => {
     const updateSize = () => {
       setCanvasSize({
-        width: Math.min(window.innerWidth * 0.8, 600),
-        height: Math.min(window.innerHeight * 0.6, 600)
+        width: Math.min(window.innerWidth * 0.8, 400),
+        height: 400
       })
     }
 
@@ -86,14 +87,14 @@ function FloatingKnight({ onClick }: { onClick: () => void }) {
   ), [onClick])
 
   return (
-    <div style={{ width: canvasSize.width, height: canvasSize.height, margin: 'auto' }}>
+    <div style={{ width: canvasSize.width, height: canvasSize.height }}>
       {canvasContent}
     </div>
   )
 }
       
 // Main Chess Game component
-export default function ChessGame() {
+export default function ChessGame({ onClose }: { onClose?: () => void }) {
   const [game, setGame] = useState<Chess>(new Chess())
   const [showGame, setShowGame] = useState<boolean>(false)
   const [boardWidth, setBoardWidth] = useState<number>(DEFAULT_SIZES.desktop)
@@ -297,67 +298,49 @@ export default function ChessGame() {
   }
 
   return (
-    <div className="flex justify-center items-center py-10 px-4">
+    <div className="flex justify-center items-center py-5 px-2 ">
       {!showGame ? (
-        <Card className="text-center">
+        <Card className="text-center bg-gray-800 border-white max-w-4xl">
+           <CardContent className="p-2">
           <FloatingKnight onClick={() => setShowGame(true)} />
           <p className="mt-4 text-lg font-semibold text-textwhite-100">
             Click the knight to play chess
           </p>
-        </Card>
-      ) : (
-        <Card className="w-full max-w-3xl relative bg-cardbg-100 grid place-items-center justify-items-center">
-          <Button
-            onClick={closeGame}
-            className="absolute top-2 right-2 p-2"
-            variant="ghost"
-            size="icon"
-          >
-            <X className="h-4 w-4" />
-          </Button>
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center text-textwhite-100">
-              Chess Game
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-20">
-              <div className="w-full max-w-md md:w-auto">
-                <Chessboard
-                  position={game.fen()}
-                  onPieceDrop={onDrop}
-                  boardWidth={boardWidth}
-                  boardOrientation={playerColor === "w" ? "white" : "black"}
-                  customLightSquareStyle={boardTheme.light}
-                  customDarkSquareStyle={boardTheme.dark}
-                  customBoardStyle={boardTheme.boardStyle}
-                  customNotationStyle={boardTheme.notationStyle}
-                  customDropSquareStyle={boardTheme.dropSquareStyle}
-                />
-              </div>
-              <div className="w-full max-w-xs space-y-4 flex flex-col items-center">
-                <div className="text-center mb-4">
-                  <Badge
-                    variant={isThinking ? "secondary" : "outline"}
-                    className="text-lg p-2"
-                  >
-                    {isThinking ? "Computer turn" : gameStatus}
-                  </Badge>
-                </div>
-                <div className="flex flex-col justify-center gap-2">
-                  <Button onClick={resetGame}>
-                    <RotateCcw className="w-4 h-4 mr-2" />
-                    New Game
-                  </Button>
-                  <Button onClick={switchSides}>
-                    <RefreshCw className="w-4 h-4 mr-2" />
-                    Switch Sides
-                  </Button>
-                </div>
-              </div>
-            </div>
           </CardContent>
         </Card>
+      ) : (
+        <GameCanvasCard
+          title="Chess Game"
+          isPlaying={!game.isGameOver()}
+          statusText={isThinking ? "Computer turn" : gameStatus}
+          onClose={closeGame}
+          controls={
+            <>
+              <Button onClick={resetGame}>
+                <RotateCcw className="w-4 h-4 mr-2" />
+                New Game
+              </Button>
+              <Button onClick={switchSides}>
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Switch Sides
+              </Button>
+            </>
+          }
+        >
+          <div className="w-full max-w-md md:w-auto">
+            <Chessboard
+              position={game.fen()}
+              onPieceDrop={onDrop}
+              boardWidth={boardWidth}
+              boardOrientation={playerColor === "w" ? "white" : "black"}
+              customLightSquareStyle={boardTheme.light}
+              customDarkSquareStyle={boardTheme.dark}
+              customBoardStyle={boardTheme.boardStyle}
+              customNotationStyle={boardTheme.notationStyle}
+              customDropSquareStyle={boardTheme.dropSquareStyle}
+            />
+          </div>
+        </GameCanvasCard>
       )}
     </div>
   );
