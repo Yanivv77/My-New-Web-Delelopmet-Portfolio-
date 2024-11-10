@@ -36,6 +36,10 @@ const config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "glass-gradient": "linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15))",
+        "popup-gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)",
+        "dark-glass": "linear-gradient(180deg, rgba(0, 45, 98, 0.15) 0%, rgba(0, 45, 98, 0.05) 100%)",
+        "midnight-glass": "linear-gradient(180deg, rgba(2, 40, 85, 0.25) 0%, rgba(2, 40, 85, 0.15) 100%)",
       },
       colors: {
         black: {
@@ -43,6 +47,18 @@ const config = {
           100: "#000319",
           200: "rgba(17, 25, 40, 0.75)",
           300: "rgba(255, 255, 255, 0.125)",
+        },
+        navy: {
+          50: '#f0f5fa',
+          100: '#dae3f3',
+          200: '#bcd0ea',
+          300: '#92b2dd',
+          400: '#6691cf',
+          500: '#4671c0',
+          600: '#3457ab',
+          700: '#2c468c',
+          800: '#273b71',
+          900: '#23335d',
         },
         white: {
           DEFAULT: "#FFF",
@@ -59,7 +75,29 @@ const config = {
           "100": "#ffffff",
         },
         purple: "#0071C5",
-        darkblue: "#002D62",
+        darkblue: {
+          DEFAULT: "#002D62",
+          100: "rgba(0, 45, 98, 0.1)",
+          200: "rgba(0, 45, 98, 0.2)",
+          300: "rgba(0, 45, 98, 0.3)",
+          400: "rgba(0, 45, 98, 0.4)",
+          500: "rgba(0, 45, 98, 0.5)",
+          600: "rgba(0, 45, 98, 0.6)",
+          700: "rgba(0, 45, 98, 0.7)",
+          800: "rgba(0, 45, 98, 0.8)",
+          900: "rgba(0, 45, 98, 0.9)",
+        },
+        midnight: {
+          100: "#001233",
+          200: "#001845",
+          300: "#002855",
+          400: "#023E7D",
+          500: "#0353A4",
+          600: "#0466C8",
+          700: "#0582CA",
+          800: "#0AA1DD",
+          900: "#48CAE4",
+        },
         lightblue: "#00C7FD",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -97,6 +135,17 @@ const config = {
         zinc: {
           ...colors.zinc,
           800: "rgb(32 32 64)", // Custom color for zinc-800
+        },
+        glass: {
+          100: "rgba(255, 255, 255, 0.1)",
+          200: "rgba(255, 255, 255, 0.15)",
+          300: "rgba(255, 255, 255, 0.2)",
+          400: "rgba(255, 255, 255, 0.25)",
+        },
+        glow: {
+          100: "rgba(255, 255, 255, 0.05)",
+          200: "rgba(255, 255, 255, 0.1)",
+          300: "rgba(255, 255, 255, 0.15)",
         },
       },
       borderRadius: {
@@ -175,6 +224,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shimmer: "shimmer 2s linear infinite",
+        pulse: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",

@@ -7,7 +7,7 @@ import RecentProjects from "@/components/RecentProjects";
 import Footer from "@/components/Footer";
 import WorkAndEducation from "@/components/WorkAndEducation";
 import Games from "@/components/ui/Games";
-import { LinkBoxes } from "@/components/ui/LinkBoxes";
+import { LinkBoxes } from "@/components/ui/LinkBoxes/index";
 
 const Home = () => {
   return (
