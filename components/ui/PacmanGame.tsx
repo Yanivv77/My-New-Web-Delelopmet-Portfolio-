@@ -5,9 +5,7 @@ import type { Game } from "@platzh1rsch/pacman-canvas";
 import { getGameInstance } from "@platzh1rsch/pacman-canvas";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { AlertCircle, Play, Pause, RotateCcw, X } from 'lucide-react';
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {  Play, Pause, RotateCcw, X } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Environment } from '@react-three/drei';
 import PacMan from './PacMan';
@@ -25,6 +23,19 @@ export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
   const [error, setError] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showGame, setShowGame] = useState(false);
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+                console.error('Service Worker registration failed:', error);
+            });
+    }
+}, []);
 
   // Initialize canvas context after canvas is mounted
   useEffect(() => {
@@ -88,8 +99,23 @@ export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
 
   const handleRestart = () => {
     if (game) {
-      game.newGame();
-      setIsPlaying(true);
+      // End current game
+      game.endGame();
+      // Reset states
+      setGame(null);
+      setCanvasContext(null);
+      setIsPlaying(false);
+      
+      // Small delay to ensure cleanup is complete
+      setTimeout(() => {
+        // Get fresh canvas context
+        if (canvasRef.current) {
+          const context = canvasRef.current.getContext("2d");
+          if (context) {
+            setCanvasContext(context);
+          }
+        }
+      }, 100);
     }
   };
 
