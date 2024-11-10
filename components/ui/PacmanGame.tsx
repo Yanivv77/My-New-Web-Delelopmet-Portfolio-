@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import { useEffect, useRef, useState, useMemo } from "react"
-import type { Game } from "@platzh1rsch/pacman-canvas"
-import { getGameInstance } from "@platzh1rsch/pacman-canvas"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { AlertCircle, Play, Pause, RotateCcw, X } from 'lucide-react'
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Float, Environment } from '@react-three/drei'
-import PacMan from './PacMan'
-import GameCanvasCard from './GameCanvasCard'
+import { useEffect, useRef, useState, useMemo } from "react";
+import type { Game } from "@platzh1rsch/pacman-canvas";
+import { getGameInstance } from "@platzh1rsch/pacman-canvas";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { AlertCircle, Play, Pause, RotateCcw, X } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Float, Environment } from '@react-three/drei';
+import PacMan from './PacMan';
+import GameCanvasCard from './GameCanvasCard';
 
 interface PacmanGameProps {
   onClose?: () => void;
@@ -19,86 +19,128 @@ interface PacmanGameProps {
 }
 
 export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [canvasContext, setCanvasContext] = useState<CanvasRenderingContext2D | null>(null)
-  const [game, setGame] = useState<Game | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [showGame, setShowGame] = useState(false)
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [canvasContext, setCanvasContext] = useState<CanvasRenderingContext2D | null>(null);
+  const [game, setGame] = useState<Game | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showGame, setShowGame] = useState(false);
 
+  // Initialize canvas context after canvas is mounted
   useEffect(() => {
-    if (canvasRef.current) {
-      setCanvasContext(canvasRef.current.getContext("2d"))
-    }
-  }, [])
-
-  useEffect(() => {
-    if (canvasContext && showGame) {
-      try {
-        const gameInstance = getGameInstance()
-        gameInstance.setCanvasContext2d(canvasContext)
-        setGame(gameInstance)
-        setError(null)
-      } catch (err) {
-        console.error('Failed to initialize Pacman game:', err)
-        setError('Failed to initialize the Pacman game. Please try refreshing the page.')
+    if (showGame && canvasRef.current && !canvasContext) {
+      const context = canvasRef.current.getContext("2d");
+      if (context) {
+        setCanvasContext(context);
+      } else {
+        console.error("Failed to get 2D context for canvas.");
       }
     }
-  }, [canvasContext, showGame])
+  }, [showGame, canvasRef]);
+
+  // Initialize game after canvas context is set
+  useEffect(() => {
+    if (canvasContext && !game) {
+      try {
+        const gameInstance = getGameInstance();
+        gameInstance.setCanvasContext2d(canvasContext);
+        gameInstance.init("NewGame");
+        
+        // Set up the game loop first
+        const gameLoop = setInterval(() => {
+          if (!gameInstance.isPaused() && !gameInstance.isGameOver()) {
+            gameInstance.render();
+          }
+        }, 1000 / 60); // 60 FPS
+
+        // Small delay to ensure everything is ready
+        setTimeout(() => {
+          gameInstance.startGame();
+          gameInstance.forceResume(); // Force the game to start running
+        }, 100);
+
+        setGame(gameInstance);
+        setIsPlaying(true);
+        setError(null);
+
+        // Cleanup
+        return () => {
+          clearInterval(gameLoop);
+          gameInstance.endGame();
+        };
+      } catch (err) {
+        console.error('Failed to initialize Pacman game:', err);
+        setError('Failed to initialize the Pacman game. Please try refreshing the page.');
+      }
+    }
+  }, [canvasContext]);
 
   const handlePauseResume = () => {
     if (game) {
-      game.pauseResume()
-      setIsPlaying(!isPlaying)
+      if (isPlaying) {
+        game.forcePause();
+      } else {
+        game.forceResume();
+      }
+      setIsPlaying(!isPlaying);
     }
-  }
+  };
 
   const handleRestart = () => {
     if (game) {
-      game.newGame()
-      setIsPlaying(true)
+      game.newGame();
+      setIsPlaying(true);
     }
-  }
+  };
 
   const handleEndGame = () => {
     if (game) {
-      game.endGame()
-      setIsPlaying(false)
+      game.endGame();
+      setIsPlaying(false);
     }
-  }
+  };
 
   const closeGame = () => {
-    setShowGame(false)
     if (game) {
-      game.endGame()
+      game.endGame();
     }
-    setIsPlaying(false)
-    onClose?.()
-  }
+    // Reset all state
+    setGame(null);
+    setCanvasContext(null);
+    setIsPlaying(false);
+    setShowGame(false);
+    setError(null);
+    onClose?.();
+  };
 
   const handleGameStart = () => {
     setShowGame(true);
+    // Reset states when starting new game
+    setGame(null);
+    setCanvasContext(null);
+    setIsPlaying(false);
+    setError(null);
     onGameStart?.();
-  }
+  };
 
   const FloatingPacMan = ({ onClick }: { onClick: () => void }) => {
     const [canvasSize, setCanvasSize] = useState({ 
       width: typeof window !== 'undefined' ? Math.min(window.innerWidth * 0.8, 400) : 400,
       height: typeof window !== 'undefined' ? 400 : 400
-    })
+    });
   
     useEffect(() => {
       const updateSize = () => {
         setCanvasSize({
           width: Math.min(window.innerWidth * 0.8, 400),
           height: 400
-        })
-      }
+        });
+      };
   
-      updateSize()
-      window.addEventListener('resize', updateSize)
-      return () => window.removeEventListener('resize', updateSize)
-    }, [])
+      updateSize();
+      window.addEventListener('resize', updateSize);
+      return () => window.removeEventListener('resize', updateSize);
+    }, []);
   
     const canvasContent = useMemo(() => (
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
@@ -116,14 +158,14 @@ export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
           maxPolarAngle={Math.PI / 2}
         />
       </Canvas>
-    ), [onClick])
+    ), [onClick]);
   
     return (
       <div style={{ width: canvasSize.width, height: canvasSize.height }}>
         {canvasContent}
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className="flex justify-center items-center py-5 px-2">
@@ -159,13 +201,7 @@ export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
                 <RotateCcw className="w-4 h-4 mr-2" />
                 Restart
               </Button>
-              <Button 
-                onClick={closeGame}
-                className="w-full bg-red-500 text-white hover:bg-red-600"
-              >
-                <X className="w-4 h-4 mr-2" />
-                End Game
-              </Button>
+
             </>
           }
         >
@@ -180,9 +216,15 @@ export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
                 <p>Canvas not supported</p>
               </canvas>
             </div>
+            {/* Display error message if any */}
+            {error && (
+              <div className="mt-4 text-red-500">
+                {error}
+              </div>
+            )}
           </div>
         </GameCanvasCard>
       )}
     </div>
-  )
+  );
 }
