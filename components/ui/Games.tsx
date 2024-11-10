@@ -8,28 +8,31 @@ import PacmanGame from './PacmanGame'
 export default function Games() {
   const [selectedGame, setSelectedGame] = useState<'chess' | 'pacman' | null>(null)
 
+  const handleCloseGame = () => {
+    setSelectedGame(null)
+  }
+
   return (
     <section className="w-full py-12">
-      <div className="container">
+      <div className={`container ${selectedGame ? 'max-w-full p-0' : ''}`}>
         <div className="flex flex-col items-center justify-center gap-8">
-          {!selectedGame ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <CardContent className="pt-6">
-                <ChessGame />
-              </CardContent>
-              <CardContent className="hidden lg:block pt-6">
-                <PacmanGame />
-              </CardContent>
-            </div>
-          ) : (
-            <div className="w-full">
-              {selectedGame === 'chess' ? (
-                <ChessGame onClose={() => setSelectedGame(null)} />
-              ) : (
-                <PacmanGame onClose={() => setSelectedGame(null)} />
-              )}
-            </div>
-          )}
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${selectedGame ? 'w-full' : ''}`}>
+            {/* Chess Game */}
+            <CardContent className={`pt-6 ${selectedGame === 'pacman' ? 'hidden' : ''} ${selectedGame === 'chess' ? 'lg:col-span-2' : ''}`}>
+              <ChessGame 
+                onClose={handleCloseGame}
+                onGameStart={() => setSelectedGame('chess')}
+              />
+            </CardContent>
+            
+            {/* Pacman Game */}
+            <CardContent className={`hidden lg:block pt-6 ${selectedGame === 'chess' ? 'lg:hidden' : ''} ${selectedGame === 'pacman' ? 'lg:col-span-2' : ''}`}>
+              <PacmanGame 
+                onClose={handleCloseGame}
+                onGameStart={() => setSelectedGame('pacman')}
+              />
+            </CardContent>
+          </div>
         </div>
       </div>
     </section>

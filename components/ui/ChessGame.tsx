@@ -94,7 +94,7 @@ function FloatingKnight({ onClick }: { onClick: () => void }) {
 }
       
 // Main Chess Game component
-export default function ChessGame({ onClose }: { onClose?: () => void }) {
+export default function ChessGame({ onClose, onGameStart }: { onClose?: () => void, onGameStart?: () => void }) {
   const [game, setGame] = useState<Chess>(new Chess())
   const [showGame, setShowGame] = useState<boolean>(false)
   const [boardWidth, setBoardWidth] = useState<number>(DEFAULT_SIZES.desktop)
@@ -293,19 +293,25 @@ export default function ChessGame({ onClose }: { onClose?: () => void }) {
   }
 
   const closeGame = () => {
-    setShowGame(false)
-    resetGame()
+    setShowGame(false);
+    resetGame();
+    onClose?.();
+  }
+
+  const handleGameStart = () => {
+    setShowGame(true);
+    onGameStart?.();
   }
 
   return (
-    <div className="flex justify-center items-center py-5 px-2 ">
+    <div className="flex justify-center items-center py-5 px-2">
       {!showGame ? (
         <Card className="text-center bg-gray-800 border-white max-w-4xl">
-           <CardContent className="p-2">
-          <FloatingKnight onClick={() => setShowGame(true)} />
-          <p className="mt-4 text-lg font-semibold text-textwhite-100">
-            Click the knight to play chess
-          </p>
+          <CardContent className="p-2">
+            <FloatingKnight onClick={handleGameStart} />
+            <p className="mt-4 text-lg font-semibold text-white">
+              Click the knight to play chess
+            </p>
           </CardContent>
         </Card>
       ) : (

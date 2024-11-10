@@ -15,9 +15,10 @@ import GameCanvasCard from './GameCanvasCard'
 
 interface PacmanGameProps {
   onClose?: () => void;
+  onGameStart?: () => void;
 }
 
-export default function PacmanGame({ onClose }: PacmanGameProps) {
+export default function PacmanGame({ onClose, onGameStart }: PacmanGameProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [canvasContext, setCanvasContext] = useState<CanvasRenderingContext2D | null>(null)
   const [game, setGame] = useState<Game | null>(null)
@@ -72,6 +73,12 @@ export default function PacmanGame({ onClose }: PacmanGameProps) {
       game.endGame()
     }
     setIsPlaying(false)
+    onClose?.()
+  }
+
+  const handleGameStart = () => {
+    setShowGame(true);
+    onGameStart?.();
   }
 
   const FloatingPacMan = ({ onClick }: { onClick: () => void }) => {
@@ -119,11 +126,11 @@ export default function PacmanGame({ onClose }: PacmanGameProps) {
   }
 
   return (
-    <div className="flex justify-center items-center py-5 px-2 ">
+    <div className="flex justify-center items-center py-5 px-2">
       {!showGame ? (
-        <Card className="text-center bg-gray-800 border-yellow-400  max-w-4xl">
+        <Card className="text-center bg-gray-800 border-yellow-400 max-w-4xl">
           <CardContent className="p-2">
-            <FloatingPacMan onClick={() => setShowGame(true)} />
+            <FloatingPacMan onClick={handleGameStart} />
             <p className="mt-4 text-lg font-semibold text-yellow-400">
               Click Pac-Man to play
             </p>
