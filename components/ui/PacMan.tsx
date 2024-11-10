@@ -51,25 +51,37 @@ export default function PacMan({ onClick }: { onClick: () => void }) {
   const size = Math.min(viewport.width, viewport.height) * 0.2
 
   return (
-    <mesh
-      ref={pacmanRef}
-      geometry={pacmanGeometry}
-      material={pacmanMaterial}
-      rotation={[0, Math.PI / 2, 0]} 
-      onClick={onClick}
-      onPointerOver={() => setHovered(true)}
-      onPointerLeave={() => setHovered(false)}
-      scale={hovered ? [size * 1.2, size * 1.2, size * 1.2] : [size, size, size]}
-    >
-      {hovered && (
-        <meshStandardMaterial
-          attach="material"
-          color="#ffd700"
-          metalness={0.8}
-          roughness={0.2}
-        />
-      )}
-    </mesh>
+    <group>
+      {/* Invisible bounding box for hover */}
+      <mesh
+        onPointerOver={() => setHovered(true)}
+        onPointerLeave={() => setHovered(false)}
+        onClick={onClick}
+      >
+        <boxGeometry args={[size * 2, size * 2, size * 2]} />
+        <meshBasicMaterial visible={false} transparent opacity={0} />
+      </mesh>
+
+      {/* Original PacMan mesh */}
+      <mesh
+        ref={pacmanRef}
+        geometry={pacmanGeometry}
+        material={pacmanMaterial}
+        rotation={[0, Math.PI / 2, 0]} 
+        scale={hovered ? [size * 1.2, size * 1.2, size * 1.2] : [size, size, size]}
+      >
+        {hovered && (
+          <meshStandardMaterial
+            attach="material"
+            color="#ffd700"
+            metalness={0.8}
+            roughness={0.2}
+            side={THREE.DoubleSide}
+            alphaMap={null}
+          />
+        )}
+      </mesh>
+    </group>
   )
 }
 
