@@ -1,44 +1,57 @@
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+'use client'
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { X, RotateCcw } from 'lucide-react'
+import { Badge } from "@/components/ui/badge"
+import { X } from 'lucide-react'
 
 interface GameCanvasCardProps {
-  title: string;
-  isPlaying: boolean;
-  statusText: string;
-  titleColor?: string;
-  children: React.ReactNode;
-  onClose?: () => void;
-  controls?: React.ReactNode;
+  title: string
+  isPlaying: boolean
+  statusText: string
+  titleColor?: string
+  onClose?: () => void
+  controls?: React.ReactNode
+  children: React.ReactNode
 }
 
 export default function GameCanvasCard({
   title,
   isPlaying,
   statusText,
-  titleColor = "text-white",
-  children,
+  titleColor = 'text-white',
   onClose,
-  controls
-}: GameCanvasCardProps): JSX.Element {
+  controls,
+  children
+}: GameCanvasCardProps) {
   return (
-    <Card className="text-center bg-gray-800 border-white w-full max-w-4xl">
-      <div className="p-4 flex flex-col items-center gap-4">
-        {children}
-
-        <div className="w-full max-w-xs space-y-4 flex flex-col items-center">
-          <div className="text-center mb-4">
-            <Badge variant="outline" className={`text-lg p-2 ${titleColor}`}>
-              {statusText}
-            </Badge>
-          </div>
-          
-          <div className="flex flex-col justify-center gap-2 w-full">
-            {controls}
-          </div>
+    <Card className="w-full max-w-[1200px] bg-gray-800 border-white relative">
+      <Button
+        onClick={onClose}
+        className="absolute right-4 top-4 hover:bg-gray-700"
+        variant="ghost"
+        size="icon"
+      >
+        <X className="h-4 w-4 text-white" />
+      </Button>
+      <CardHeader>
+        <CardTitle className={`text-2xl font-bold text-center ${titleColor}`}>
+          {title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-col items-center gap-4">
+          <Badge variant={isPlaying ? "outline" : "secondary"} className="mb-4">
+            {statusText}
+          </Badge>
+          {children}
+          {controls && (
+            <div className="flex gap-4 mt-4">
+              {controls}
+            </div>
+          )}
         </div>
-      </div>
+      </CardContent>
     </Card>
-  );
+  )
 } 

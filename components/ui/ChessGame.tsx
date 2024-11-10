@@ -304,7 +304,7 @@ export default function ChessGame({ onClose, onGameStart }: { onClose?: () => vo
   }
 
   return (
-    <div className="flex justify-center items-center py-5 px-2">
+    <div className="flex justify-center items-center py-5 px-2 w-full">
       {!showGame ? (
         <Card className="text-center bg-gray-800 border-white max-w-4xl">
           <CardContent className="p-2">
@@ -333,18 +333,22 @@ export default function ChessGame({ onClose, onGameStart }: { onClose?: () => vo
             </>
           }
         >
-          <div className="w-full max-w-md md:w-auto">
-            <Chessboard
-              position={game.fen()}
-              onPieceDrop={onDrop}
-              boardWidth={boardWidth}
-              boardOrientation={playerColor === "w" ? "white" : "black"}
-              customLightSquareStyle={boardTheme.light}
-              customDarkSquareStyle={boardTheme.dark}
-              customBoardStyle={boardTheme.boardStyle}
-              customNotationStyle={boardTheme.notationStyle}
-              customDropSquareStyle={boardTheme.dropSquareStyle}
-            />
+          <div className="flex justify-center items-center w-full">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex justify-center">
+                <Chessboard
+                  position={game.fen()}
+                  onPieceDrop={onDrop}
+                  boardWidth={boardWidth}
+                  boardOrientation={playerColor === "w" ? "white" : "black"}
+                  customLightSquareStyle={boardTheme.light}
+                  customDarkSquareStyle={boardTheme.dark}
+                  customBoardStyle={boardTheme.boardStyle}
+                  customNotationStyle={boardTheme.notationStyle}
+                  customDropSquareStyle={boardTheme.dropSquareStyle}
+                />
+              </div>
+            </div>
           </div>
         </GameCanvasCard>
       )}
