@@ -33,8 +33,8 @@ export const Controls: React.FC<ControlsProps> = ({
           onChange={(e) => setTheme(e.target.value)}
           className="w-full bg-gray-900 text-white p-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
         >
-          <option value="dark">Dark+ (VS Code)</option>
-          <option value="light">Light+ (VS Code)</option>
+          <option value="dark">Dark VSCode</option>
+          <option value="light">Light VSCode)</option>
         </select>
       </div>
     </div>
