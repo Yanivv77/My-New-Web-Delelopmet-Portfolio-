@@ -5,6 +5,7 @@ import { MyLinksModal } from './tools/MyLinks';
 import { SVGTool } from './tools/SvgTool';
 import { SquareTool } from './tools/SquareTool';
 import { RoundedTool } from './tools/RoundedTool';
+import TextToImage from './tools/CodetoImage/TextToImage';
 
 
 interface LinkBox {
@@ -18,7 +19,7 @@ const links: LinkBox[] = [
   { text: 'SVG to PNG', content: <SVGTool/> },
   { text: 'Square Image', content: <SquareTool />},
   { text: 'Round Image', content: <RoundedTool />},
-  
+  { text: 'Code to Image', content: <TextToImage />},
 ];
 
 function LinkGrid({ links, onSelectLink }: { links: LinkBox[], onSelectLink: (link: LinkBox) => void }) {
