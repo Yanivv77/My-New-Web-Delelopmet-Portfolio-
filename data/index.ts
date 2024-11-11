@@ -1,12 +1,8 @@
-import exp from "constants";
-
-// todo link to blog
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Contact", link: "#contact" },
-  { name: "Blog", link: "/blog" },
-  
+  { name: "Blog", link: "/blog", newTab: true },
 ];
 
 

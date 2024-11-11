@@ -134,7 +134,7 @@ export const BentoGridItem = ({
 
           {id === 1 && (
             
-    <Link href="/blog" className="flex justify-center items-center w-[105%] h-[105%]"  onClick={handleBlogClick}>
+    <Link href="/blog" target="_blank" className="flex justify-center items-center w-[105%] h-[105%]" onClick={handleBlogClick}>
       <BackgroundGradientAnimation gradientBackgroundStart="color1" gradientBackgroundEnd="color2" className="w-[125%] h-[125%]">
         <GridGlobe />
       </BackgroundGradientAnimation>

@@ -21,7 +21,10 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="w-full pt-20 pb-10 relative" id="contact">
+    <footer 
+      className="w-full pt-20 pb-10 relative scroll-mt-[100px]"
+      id="contact"
+    >
       <div className="absolute left-0 -bottom-72 w-full min-h-96">
         <Image
           src="/footer-grid.svg"

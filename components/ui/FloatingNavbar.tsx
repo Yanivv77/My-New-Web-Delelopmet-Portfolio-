@@ -17,6 +17,7 @@ export const FloatingNav = ({
     name: string;
     link: string;
     icon?: JSX.Element;
+    newTab?: boolean;
   }[];
   className?: string;
 }) => {
@@ -42,6 +43,24 @@ export const FloatingNav = ({
       }
     }
   });
+
+  // Add smooth scroll handler
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    if (link.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(link);
+      if (element) {
+        const headerOffset = 100; // Adjust this value based on your needs
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = window.pageYOffset + elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -75,21 +94,17 @@ export const FloatingNav = ({
           <Link
             key={`link=${idx}`}
             href={navItem.link}
+            onClick={(e) => handleClick(e, navItem.link)}
+            target={navItem.newTab ? "_blank" : undefined}
+            rel={navItem.newTab ? "noopener noreferrer" : undefined}
             className={cn(
-              "relative  items-center flex space-x-1  text-neutral-50 hover:text-neutral-300 "
+              "relative items-center flex space-x-1 text-neutral-50 hover:text-neutral-300"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            {/* add !cursor-pointer */}
-            {/* remove hidden sm:block for the mobile responsive */}
-            <span className=" text-sm !cursor-pointer">{navItem.name}</span>
+            <span className="text-sm !cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
-        {/* remove this login btn */}
-        {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button> */}
       </motion.div>
     </AnimatePresence>
   );
