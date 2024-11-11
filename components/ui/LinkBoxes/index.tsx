@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Modal } from './Modal';
-import { MyLinksModal } from './modals/MyLinksModal';
-import { ServicesModal } from './modals/ServicesModal';
-import { PngToSvgModal } from './modals/PngToSvgModal';
-import { ImageToWebpModal } from './modals/ImageToWebpModal';
+import { MyLinksModal } from './tools/MyLinks';
+
+import { SVGTool } from './tools/SvgTool';
+import { SquareTool } from './tools/SquareTool';
+import { RoundedTool } from './tools/RoundedTool';
+
 
 interface LinkBox {
   text: string;
@@ -13,9 +15,10 @@ interface LinkBox {
 
 const links: LinkBox[] = [
   { text: 'My Links', content: <MyLinksModal /> },
-  // { text: 'Services I Use', content: <ServicesModal /> },
-  { text: 'PNG to SVG', content: <PngToSvgModal /> },
-  { text: 'Image to WEBP', content: <ImageToWebpModal /> }
+  { text: 'SVG to PNG', content: <SVGTool/> },
+  { text: 'Square Image', content: <SquareTool />},
+  { text: 'Round Image', content: <RoundedTool />},
+  
 ];
 
 function LinkGrid({ links, onSelectLink }: { links: LinkBox[], onSelectLink: (link: LinkBox) => void }) {
