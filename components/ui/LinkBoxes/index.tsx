@@ -13,7 +13,7 @@ interface LinkBox {
 
 const links: LinkBox[] = [
   { text: 'My Links', content: <MyLinksModal /> },
-  { text: 'Services I Use', content: <ServicesModal /> },
+  // { text: 'Services I Use', content: <ServicesModal /> },
   { text: 'PNG to SVG', content: <PngToSvgModal /> },
   { text: 'Image to WEBP', content: <ImageToWebpModal /> }
 ];
@@ -65,33 +65,35 @@ export function LinkBoxes() {
   const [selectedLink, setSelectedLink] = useState<LinkBox | null>(null);
 
   return (
-    <section className="relative w-full max-w-4xl px-4 sm:px-6 py-6 
+    <div className="w-full flex justify-center">
+      <section className="relative w-full max-w-4xl px-4 sm:px-6 py-6 
                     border border-white/5 rounded-2xl 
                     bg-midnight-glass backdrop-blur-lg
                     shadow-[0_0_50px_-12px] shadow-white/10
                     hover:shadow-[0_0_50px_-6px] hover:shadow-white/20
-                    transition-all duration-300 justify-self-center">
-      <div className="absolute inset-0 bg-gradient-radial from-white/5 to-transparent opacity-50 blur-2xl" />
-      <div className="relative mx-auto max-w-4xl">
-        <div className="mb-8 text-center">
-          <h2 className="text-white/90 text-2xl font-extralight tracking-wide">
-            My Tools
-          </h2>
+                    transition-all duration-300">
+        <div className="absolute inset-0 bg-gradient-radial from-white/5 to-transparent opacity-50 blur-2xl" />
+        <div className="relative mx-auto max-w-4xl">
+          <div className="mb-8 text-center">
+            <h2 className="text-white/90 text-2xl font-extralight tracking-wide">
+              My Tools
+            </h2>
+          </div>
+
+          <LinkGrid 
+            links={links}
+            onSelectLink={setSelectedLink}
+          />
+
+          <Modal
+            isOpen={selectedLink !== null}
+            onClose={() => setSelectedLink(null)}
+            title={selectedLink?.text || ''}
+          >
+            {selectedLink?.content}
+          </Modal>
         </div>
-
-        <LinkGrid 
-          links={links}
-          onSelectLink={setSelectedLink}
-        />
-
-        <Modal
-          isOpen={selectedLink !== null}
-          onClose={() => setSelectedLink(null)}
-          title={selectedLink?.text || ''}
-        >
-          {selectedLink?.content}
-        </Modal>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 } 
