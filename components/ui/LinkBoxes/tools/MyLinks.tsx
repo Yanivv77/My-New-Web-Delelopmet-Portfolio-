@@ -39,6 +39,7 @@ export function MyLinksModal() {
         { name: "Favicon.io", url: "https://favicon.io", description: "Generate favicons and app icons" },
         { name: "DevDocs", url: "https://devdocs.io", description: "Documentation for developers" },
         { name: "QuickRef", url: "https://quickref.me", description: "Quick reference for programming languages and frameworks" },
+        { name: "Scrimba", url: "https://v2.scrimba.com", description: "Interactive coding tutorials and courses" },
       ],
   };
 
