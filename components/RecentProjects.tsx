@@ -40,7 +40,7 @@ const RecentProjects = () => {
         {projects.map((item) => (
           <a
             key={item.id}
-             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+             className="lg:min-h-[36.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"

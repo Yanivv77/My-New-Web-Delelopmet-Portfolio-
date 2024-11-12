@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,6 +66,10 @@
     --ring: 240, 20%, 80%;         /* Lighter for focus rings */
     --color-svg: #ffffff;               /* White for SVGs for simplicity and contrast */
 }
+
+  html {
+    font-size: 90%;
+  }
 }
 
 @layer base {

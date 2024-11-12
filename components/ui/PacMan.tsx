@@ -24,7 +24,6 @@ export default function PacMan({ onClick }: { onClick: () => void }) {
     if (materials.PacmanMaterial) {
       return materials.PacmanMaterial
     } else {
-      console.warn('Pacman material not found. Using default MeshStandardMaterial.')
       return new THREE.MeshStandardMaterial({ 
         color: '#ffff00',
         metalness: 0.2,

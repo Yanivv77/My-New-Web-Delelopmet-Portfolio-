@@ -16,7 +16,7 @@ export default function ChessKnight({ onClick }: { onClick: () => void }) {
       knightNode.geometry.rotateY(Math.PI / 2) 
       return knightNode.geometry
     } else {
-      console.warn('Knight geometry not found. Using default BoxGeometry.')
+   
       const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
       boxGeometry.rotateY(Math.PI) 
       return boxGeometry
@@ -29,7 +29,6 @@ export default function ChessKnight({ onClick }: { onClick: () => void }) {
     if (material) {
       return material
     } else {
-      console.warn('Knight material not found. Using default MeshStandardMaterial.')
       return new THREE.MeshStandardMaterial({ 
         color: '#f4f4f4',
         metalness: 0.4,
