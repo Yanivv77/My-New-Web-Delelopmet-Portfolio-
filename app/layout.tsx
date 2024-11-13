@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="" style={{ fontSize: '120%' }}>
+    <html lang="en" suppressHydrationWarning >
       <head>
         <link rel="icon" href="/" sizes="any" />
       </head>
@@ -57,6 +57,7 @@ export default function RootLayout({
           <Analytics />
         </ThemeProvider>
       </body>
+ 
     </html>
   );
 }

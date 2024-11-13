@@ -18,6 +18,7 @@ export function MyLinksModal() {
       { name: "Uiverse", url: "https://uiverse.io", description: "A platform for UI components and design resources" },
       { name: "Sketchfab", url: "https://sketchfab.com/", description: "3D model sharing platform" },
       { name: "Aeternity UI", url: "https://ui.aceternity.com", description: "Aceternity.UI components" },
+      { name: "Origin UI", url: "https://originui.com", description: "Origin UI is an extensive collection of copy-and-paste components" },
     ],
     "Backend": [
       { name: "Neon", url: "https://neon.tech", description: "Serverless Postgres for developers" },

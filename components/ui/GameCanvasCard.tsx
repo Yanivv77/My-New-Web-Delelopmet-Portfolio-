@@ -25,7 +25,7 @@ export default function GameCanvasCard({
   children
 }: GameCanvasCardProps) {
   return (
-    <Card className="w-full max-w-[1200px] bg-gray-800 border-white relative">
+    <Card className=" max-w-[1200px] bg-gray-800 border-white relative">
       <Button
         onClick={onClose}
         className="absolute right-4 top-4 hover:bg-gray-700"

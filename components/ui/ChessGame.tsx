@@ -304,9 +304,9 @@ export default function ChessGame({ onClose, onGameStart }: { onClose?: () => vo
   }
 
   return (
-    <div className="flex justify-center items-center py-5 px-2 w-full">
+    <div className="flex justify-center items-center py-5 px-2 ">
       {!showGame ? (
-        <Card className="text-center bg-gray-800 border-white max-w-4xl">
+        <Card className="text-center bg-gray-800 border-white max-w-3xl">
           <CardContent className="p-2">
             <FloatingKnight onClick={handleGameStart} />
             <p className="mt-4 text-lg font-semibold text-white">
@@ -333,7 +333,7 @@ export default function ChessGame({ onClose, onGameStart }: { onClose?: () => vo
             </>
           }
         >
-          <div className="flex justify-center items-center w-full">
+          <div className="flex justify-center items-center ">
             <div className="flex flex-col items-center gap-4">
               <div className="flex justify-center">
                 <Chessboard
