@@ -41,7 +41,7 @@ export default function GameCanvasCard({
       </CardHeader>
       <CardContent>
         <div className="flex flex-col items-center gap-4">
-          <Badge variant={isPlaying ? "outline" : "secondary"} className="mb-4">
+          <Badge variant={isPlaying ? "outline" : "secondary"} className="mb-4 text-white">
             {statusText}
           </Badge>
           {children}

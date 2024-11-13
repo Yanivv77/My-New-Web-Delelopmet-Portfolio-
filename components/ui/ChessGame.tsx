@@ -5,7 +5,7 @@ import { Chessboard } from 'react-chessboard'
 import { Chess, Move, Square, PieceSymbol } from 'chess.js'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+
 import { RefreshCw, RotateCcw, X } from 'lucide-react'
 import { Canvas, extend } from '@react-three/fiber'
 import { OrbitControls, Float, Environment } from '@react-three/drei'
