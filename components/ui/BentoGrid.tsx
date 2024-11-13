@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/utils/cn";
@@ -57,19 +57,22 @@ export const BentoGridItem = ({
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
+  const defaultOptions = useMemo(() => ({
+    loop: false,
     autoplay: copied,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+      progressiveLoad: true,
+      hideOnTransparent: true
+    }
+  }), [copied]);
 
   const handleCopy = () => {
     const text = "Yanivv77@Gmail.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const handleBlogClick = () => {
@@ -134,7 +137,7 @@ export const BentoGridItem = ({
 
           {id === 1 && (
             
-    <Link href="/blog" target="_blank" className="flex justify-center items-center w-[105%] h-[105%]" onClick={handleBlogClick}>
+    <Link href="/blog" className="flex justify-center items-center w-[105%] h-[105%]"  onClick={handleBlogClick}>
       <BackgroundGradientAnimation gradientBackgroundStart="color1" gradientBackgroundEnd="color2" className="w-[125%] h-[125%]">
         <GridGlobe />
       </BackgroundGradientAnimation>
@@ -146,7 +149,16 @@ export const BentoGridItem = ({
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
                   }`}
               >
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <Lottie 
+                  options={defaultOptions}
+                  height={150}
+                  width={300}
+                  isStopped={!copied}
+                  style={{ 
+                    transform: 'translate3d(0, 0, 0)',
+                    willChange: 'transform' 
+                  }}
+                />
               </div>
 
               <MagicButton

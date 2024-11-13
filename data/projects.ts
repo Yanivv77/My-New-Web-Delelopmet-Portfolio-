@@ -1,4 +1,14 @@
-export const projects = [
+export type ProjectType = {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link: string;
+  githubLink: string;
+};
+
+export const projects: ProjectType[] = [
   {
     id: 6,  
     title: "FormCraftAI",

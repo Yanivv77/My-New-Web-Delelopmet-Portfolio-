@@ -1,16 +1,9 @@
-import { useState, useEffect } from 'react';
-import { projects } from "@/data/projects";
+
+import { projects, ProjectType } from "@/data/projects";
 import { PinContainer } from "./ui/Pin";
 import Image from "next/image";
-import Link from "next/link";
 
 const RecentProjects = () => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);  
-  }, []);
-
   const renderIconList = (iconLists: string[]) => {
     return iconLists.map((icon, index) => (
       <div
@@ -37,10 +30,10 @@ const RecentProjects = () => {
         </h1>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-16 mt-10">
-        {projects.map((item) => (
+        {projects.map((item : ProjectType ) => (
           <a
             key={item.id}
-             className="lg:min-h-[36.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+            className="lg:min-h-[36.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -93,16 +86,16 @@ const RecentProjects = () => {
                     {renderIconList(item.iconLists)}
                   </div>
 
-                  {isClient && (
-                    <a
-                      href={item?.githubLink || "#"}
-                      className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Github
-                    </a>
-                  )}
+                  <div
+                    className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer"
+                    onClick={() => {
+                      if (item?.githubLink) {
+                        window.open(item.githubLink, '_blank', 'noopener,noreferrer');
+                      }
+                    }}
+                  >
+                    Github
+                  </div>
                 </div>
               </PinContainer>
           

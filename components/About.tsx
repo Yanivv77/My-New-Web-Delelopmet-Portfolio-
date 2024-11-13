@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"

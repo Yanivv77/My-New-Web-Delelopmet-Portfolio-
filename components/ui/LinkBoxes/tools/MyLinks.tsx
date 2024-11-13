@@ -17,6 +17,7 @@ export function MyLinksModal() {
       { name: "Locofy", url: "https://locofy.ai", description: "Design and import to Figma" },
       { name: "Uiverse", url: "https://uiverse.io", description: "A platform for UI components and design resources" },
       { name: "Sketchfab", url: "https://sketchfab.com/", description: "3D model sharing platform" },
+      { name: "Aeternity UI", url: "https://ui.aceternity.com", description: "Aceternity.UI components" },
     ],
     "Backend": [
       { name: "Neon", url: "https://neon.tech", description: "Serverless Postgres for developers" },

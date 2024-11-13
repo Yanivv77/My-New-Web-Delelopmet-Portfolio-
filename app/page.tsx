@@ -9,6 +9,15 @@ import WorkAndEducation from "@/components/WorkAndEducation";
 import Games from "@/components/ui/Games";
 import { LinkBoxes } from "@/components/ui/LinkBoxes/index";
 
+if (process?.env?.NEXT_PUBLIC_NODE_ENV === 'production' || process?.env?.NODE_ENV === 'production') {
+  console.warn = () => {};
+  console.error = () => {};
+  console.log = () => {};
+  console.info = () => {};
+  console.debug = () => {};
+  console.trace = () => {};
+}
+
 const Home = () => {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">

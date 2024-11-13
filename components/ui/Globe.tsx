@@ -65,7 +65,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     | {
         size: number;
         order: number;
-        color: (t: number) => string;
+        color: string | ((t: number) => string);
         lat: number;
         lng: number;
       }[]
@@ -122,14 +122,14 @@ export function Globe({ globeConfig, data }: WorldProps) {
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
+        color: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`, // Use a string directly
         lat: arc.startLat,
         lng: arc.startLng,
       });
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
+        color: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`, // Use a string directly
         lat: arc.endLat,
         lng: arc.endLng,
       });
@@ -186,7 +186,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcDashAnimateTime((e) => defaultProps.arcTime);
 
     globeRef.current
-      .pointsData(data)
+      .pointsData(globeData)
       .pointColor((e) => (e as { color: string }).color)
       .pointsMerge(true)
       .pointAltitude(0.0)
@@ -194,8 +194,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globeRef.current
       .ringsData([])
-      .ringColor((e: any) => (t: any) => e.color(t))
-      .ringMaxRadius(defaultProps?.maxRings)
+      .ringColor((e: any) => (e as { color: string }).color)
+      .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
         (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
@@ -221,7 +221,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeData, data.length]);
+  }, [globeRef.current, globeData]);
 
   return (
     <>
@@ -237,7 +237,7 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, [gl, size.height, size.width]);
+  }, []);
 
   return null;
 }
