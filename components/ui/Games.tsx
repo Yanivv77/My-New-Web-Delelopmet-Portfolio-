@@ -13,12 +13,14 @@ export default function Games() {
   }
 
   return (
-    <section className="w-full py-12">
-      <div className={`container ${selectedGame ? 'max-w-full p-0' : ''}`}>
+    <section className="w-full py-12 overflow-x-hidden">
+      <div className={`container ${selectedGame ? 'max-w-screen p-0' : ''}`}>
         <div className="flex flex-col items-center justify-center gap-8">
-          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${selectedGame ? 'w-full' : ''}`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${selectedGame ? 'w-screen px-4' : ''}`}>
             {/* Chess Game */}
-            <CardContent className={`pt-6 ${selectedGame === 'pacman' ? 'hidden' : ''} ${selectedGame === 'chess' ? 'lg:col-span-2' : ''}`}>
+            <CardContent className={`pt-6 ${selectedGame === 'pacman' ? 'hidden' : ''} ${
+              selectedGame === 'chess' ? 'lg:col-span-2 w-full overflow-hidden' : ''
+            }`}>
               <ChessGame 
                 onClose={handleCloseGame}
                 onGameStart={() => setSelectedGame('chess')}
