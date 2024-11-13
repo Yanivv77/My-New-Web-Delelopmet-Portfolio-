@@ -43,7 +43,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     </div>
         <br />
         <div>
-          <Card className="hidden sm:block col-span-12 sm:col-span-4 sm:col-start-9 sm:row-start-1 h-fit">
+          <Card className="hidden sm:block col-span-12 sm:col-span-4 sm:col-start-9 sm:row-start-1 h-fit dark:from-zinc-900 dark:to-zinc-800 from-zinc-200 to-zinc-100">
             <CardHeader>
               <CardTitle>Tags</CardTitle>
             </CardHeader>
