@@ -11,6 +11,15 @@ export type ProjectType = {
 export const projects: ProjectType[] = [
   {
     id: 6,  
+    title: "QuickBooks",
+    des: "Very fast performance e-commerce site",
+    img: "/project_images/quickSite.webp",  
+    iconLists: ["/project_icons/next.svg","/project_icons/typescript.svg","project_icons/postgresql.svg","/project_icons/drizzleorm.png", "/project_icons/openai.svg"],  
+    link: "https://quickbooks-tau.vercel.app",
+    githubLink: "https://github.com/Yanivv77/QuickSite"
+  },
+  {
+    id: 5,  
     title: "FormCraftAI",
     des: "Instantly create customizable forms with AI.",
     img: "/project_images/formcraftai.webp",  
@@ -19,7 +28,7 @@ export const projects: ProjectType[] = [
     githubLink: "https://github.com/Yanivv77/FormCraftAI"
   },
   {
-    id: 5,  
+    id: 4,  
     title: "Podniv",
     des: "SaaS platform that creates podcasts from text-to-speech with OpenAI.",
     img: "/project_images/podniv.webp",  
@@ -28,7 +37,7 @@ export const projects: ProjectType[] = [
     githubLink: "https://github.com/Yanivv77/PodNiv"
   },
   {
-    id: 4,
+    id: 3,
     title: "CryptoNiv",
     des: "Sending crypto in blockchain smart contract project",
     img: "/project_images/CryptoNiv.webp",
@@ -37,7 +46,7 @@ export const projects: ProjectType[] = [
     githubLink: "https://github.com/Yanivv77/Cryptoniv"
   },
   {
-    id: 3,
+    id: 2,
     title: "MERN ProShop",
     des: "E-commerce platform built with the MERN stack.",
     img: "/project_images/Proshop.webp",
@@ -46,7 +55,7 @@ export const projects: ProjectType[] = [
     githubLink: "https://github.com/Yanivv77/Mern-Stack-Ecommerce-Project"
   },
   {
-    id: 2,
+    id: 1,
     title: "Management-App-GraphQL",
     des: "Management application using GraphQL.",
     img: "/project_images/GraphQL.webp",
@@ -54,15 +63,7 @@ export const projects: ProjectType[] = [
     link: "https://github.com/Yanivv77/Project-Management-App-GraphQL",
     githubLink: "https://github.com/Yanivv77/Project-Management-App-GraphQL"
   },
-  {
-    id: 1,
-    title: "Microservices Blog",
-    des: "Blog application built with microservices architecture.",
-    img: "/project_images/Microservices-Blog.webp",
-    iconLists: ["/project_icons/react.svg", "/project_icons/nodejs.svg","/project_icons/docker.svg","/project_icons/mongodb.svg"],
-    link: "https://github.com/Yanivv77/Microservices-Blog",
-    githubLink: "https://github.com/Yanivv77/Microservices-Blog"
-  },
+  
  
  
 ];
