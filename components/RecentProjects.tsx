@@ -1,4 +1,3 @@
-
 import { projects, ProjectType } from "@/data/projects";
 import { PinContainer } from "./ui/Pin";
 import Image from "next/image";
@@ -86,16 +85,19 @@ const RecentProjects = () => {
                     {renderIconList(item.iconLists)}
                   </div>
 
-                  <div
-                    className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer"
-                    onClick={() => {
-                      if (item?.githubLink) {
-                        window.open(item.githubLink, '_blank', 'noopener,noreferrer');
-                      }
-                    }}
-                  >
-                    Github
-                  </div>
+                  {item.githubLink && (
+                    <div
+                      className="flex lg:text-lg md:text-2xs text-2xs text-purple hover:underline cursor-pointer"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const win = window.open(item.githubLink, '_blank');
+                        if (win) win.focus();
+                      }}
+                    >
+                      Github
+                    </div>
+                  )}
                 </div>
               </PinContainer>
           
