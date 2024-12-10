@@ -10,13 +10,22 @@ export type ProjectType = {
 
 export const projects: ProjectType[] = [
   {
-    id: 6,  
+    id: 7,  
     title: "QuickBooks",
     des: "Very fast performance e-commerce site",
     img: "/project_images/quickSite.webp",  
     iconLists: ["/project_icons/next.svg","/project_icons/typescript.svg","project_icons/postgresql.svg","/project_icons/drizzleorm.png", "/project_icons/openai.svg"],  
     link: "https://quickbooks-tau.vercel.app",
     githubLink: "https://github.com/Yanivv77/QuickSite"
+  },
+  {
+    id: 6,  
+    title: "WittyPrices",
+    des: "Amazon products price tracking and notification system with email alerts.",
+    img: "/project_images/wittyprices.webp",  
+    iconLists: ["/project_icons/next.svg", "/project_icons/typescript.svg", "/project_icons/mongodb.svg", "/project_icons/nodemailer.webp"],
+    link: "https://wittyprices.vercel.app",  
+    githubLink: "https://github.com/Yanivv77/WittyPrices"  
   },
   {
     id: 5,  

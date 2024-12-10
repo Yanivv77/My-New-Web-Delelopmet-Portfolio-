@@ -34,6 +34,7 @@ export function MyLinksModal() {
       { name: "Phind", url: "https://www.phind.com", description: "Idea to product" }, 
       { name: "Codium AI", url: "https://www.codium.ai", description: "Suggests tests as you’re writing code" }, 
       { name: "Mintlify Writer", url: "https://www.mintlify.com", description: "Auto-generates docs" }, 
+      { name: "Napkin.ai", url: "https://napkin.ai", description: "AI-powered brainstorming and idea generation tool" },
     ],
       "Other": [
         { name: "Readme.so", url: "https://readme.so", description: "Create beautiful README files" },
