@@ -17,13 +17,13 @@ const languages = [
 
 export default function Translator() {
   const [text, setText] = useState('');
-  const [targetLanguage, setTargetLanguage] = useState('ru');
+  const [targetLanguage, setTargetLanguage] = useState('he');
   const [translatedText, setTranslatedText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
-  const [isRTL, setIsRTL] = useState(false);
+  const [isRTL, setIsRTL] = useState(true);
   const [inputRTL, setInputRTL] = useState(false);
   const [copied, setCopied] = useState(false);
 
