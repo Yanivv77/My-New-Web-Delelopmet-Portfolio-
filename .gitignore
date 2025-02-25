@@ -133,3 +133,4 @@ dist
 .env.sentry-build-plugin
 
 .velite
+.vercel
