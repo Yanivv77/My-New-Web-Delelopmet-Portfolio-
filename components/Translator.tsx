@@ -121,132 +121,126 @@ export default function Translator() {
   };
 
   return (
-    <div className="py-16" id="translator">
-      <h2 className="heading text-white mb-8 text-center">
-        <span className="text-purple">Translation</span> Tool
-      </h2>
-          
-      <div className="transition-all duration-300">
-        <Card className="w-full max-w-3xl mx-auto backdrop-blur-sm bg-opacity-90 border-zinc-700/50 shadow-xl">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-2xl font-bold text-center ">
-              Google API Translator
-            </CardTitle>
-            <CardDescription className="text-center text-zinc-400">
-              Translate text between multiple languages with text-to-speech support
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-col gap-6">
-              <div className="relative">
-                <Textarea
-                  placeholder="Enter text to translate..."
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                  className={cn(
-                    "min-h-[120px] transition-all duration-200 focus:border-purple-500 focus:ring-purple-500/20 resize-none p-4",
-                    inputRTL && "text-right"
-                  )}
-                  dir={inputRTL ? "rtl" : "ltr"}
-                />
-                {text && (
-                  <div className="absolute top-2 right-2">
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      onClick={() => setText('')}
-                      className="h-6 w-6 rounded-full p-0 text-zinc-400 hover:text-zinc-100"
-                    >
-                      ×
-                    </Button>
-                  </div>
+    <div id="translator">
+      <Card className="h-full backdrop-blur-sm bg-opacity-90 border-zinc-700/50 shadow-xl">
+        <CardHeader className="pb-4">
+          <CardTitle className="text-2xl font-bold text-center text-white dark:text-white">
+            Google API Translator
+          </CardTitle>
+          <CardDescription className="text-center text-zinc-400">
+            Translate text between multiple languages with text-to-speech support
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-col gap-6">
+            <div className="relative">
+              <Textarea
+                placeholder="Enter text to translate..."
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className={cn(
+                  "min-h-[120px] transition-all duration-200 focus:border-purple-500 focus:ring-purple-500/20 resize-none p-4",
+                  inputRTL && "text-right"
                 )}
-              </div>
-              
-              <div className="flex flex-col sm:flex-row items-center gap-4">
-                <div className="flex-1 w-full">
-                  <Select value={targetLanguage} onValueChange={setTargetLanguage}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select language" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {languages.map((lang) => (
-                        <SelectItem key={lang.code} value={lang.code}>
-                          {lang.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <Button 
-                  onClick={handleTranslate} 
-                  disabled={isLoading || !text.trim()}
-                  className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-200"
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Translating...
-                    </>
-                  ) : (
-                    <>
-                      Translate
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
-              </div>
-              
-              {error && (
-                <div className="text-red-500 text-sm p-3 bg-red-500/10 rounded-md border border-red-500/20 transition-opacity duration-300">
-                  {error}
-                </div>
-              )}
-              
-              {translatedText && (
-                <div className="mt-2 transition-all duration-300">
-                  <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-lg font-medium text-zinc-200">Translation:</h3>
-                    <div className="flex gap-2">
-                      {speechSupported && (
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          onClick={() => speakText(translatedText)}
-                          disabled={isSpeaking}
-                          className="flex items-center gap-1 border-zinc-700 hover:bg-zinc-800"
-                        >
-                          <Volume2 className="h-4 w-4" />
-                          {isSpeaking ? 'Speaking...' : 'Speak'}
-                        </Button>
-                      )}
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={copyToClipboard}
-                        className="flex items-center gap-1 border-zinc-700 hover:bg-zinc-800"
-                      >
-                        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                        {copied ? 'Copied!' : 'Copy'}
-                      </Button>
-                    </div>
-                  </div>
-                  <div 
-                    className={cn(
-                      "p-4 bg-zinc-800/50 rounded-md border border-zinc-700/50 transition-all duration-200", 
-                      isRTL && "text-right"
-                    )}
-                    dir={isRTL ? "rtl" : "ltr"}
+                dir={inputRTL ? "rtl" : "ltr"}
+              />
+              {text && (
+                <div className="absolute top-2 right-2">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => setText('')}
+                    className="h-6 w-6 rounded-full p-0 text-zinc-400 hover:text-zinc-100"
                   >
-                    {translatedText}
-                  </div>
+                    ×
+                  </Button>
                 </div>
               )}
             </div>
-          </CardContent>
-        </Card>
-      </div>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex-1 w-full">
+                <Select value={targetLanguage} onValueChange={setTargetLanguage}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {languages.map((lang) => (
+                      <SelectItem key={lang.code} value={lang.code}>
+                        {lang.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <Button 
+                onClick={handleTranslate} 
+                disabled={isLoading || !text.trim()}
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-200"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Translating...
+                  </>
+                ) : (
+                  <>
+                    Translate
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </div>
+            
+            {error && (
+              <div className="text-red-500 text-sm p-3 bg-red-500/10 rounded-md border border-red-500/20 transition-opacity duration-300">
+                {error}
+              </div>
+            )}
+            
+            {translatedText && (
+              <div className="mt-2 transition-all duration-300">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="text-lg font-medium text-zinc-200">Translation:</h3>
+                  <div className="flex gap-2">
+                    {speechSupported && (
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => speakText(translatedText)}
+                        disabled={isSpeaking}
+                        className="flex items-center gap-1 border-zinc-700 hover:bg-zinc-800"
+                      >
+                        <Volume2 className="h-4 w-4" />
+                        {isSpeaking ? 'Speaking...' : 'Speak'}
+                      </Button>
+                    )}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={copyToClipboard}
+                      className="flex items-center gap-1 border-zinc-700 hover:bg-zinc-800"
+                    >
+                      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                      {copied ? 'Copied!' : 'Copy'}
+                    </Button>
+                  </div>
+                </div>
+                <div 
+                  className={cn(
+                    "p-4 bg-zinc-800/50 rounded-md border border-zinc-700/50 transition-all duration-200", 
+                    isRTL && "text-right"
+                  )}
+                  dir={isRTL ? "rtl" : "ltr"}
+                >
+                  {translatedText}
+                </div>
+              </div>
+            )}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

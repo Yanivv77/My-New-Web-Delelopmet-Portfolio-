@@ -3,10 +3,6 @@ import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    config.plugins.push(new VeliteWebpackPlugin());
-    return config;
-  }, 
   images: {
     remotePatterns: [
       {
@@ -26,10 +22,21 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   webpack: (config) => {
+    // Fix for the Velite dynamic import warning
+    config.module.parser = {
+      ...config.module.parser,
+      javascript: {
+        ...config.module.parser?.javascript,
+        dynamicImportMode: 'eager'
+      }
+    };
+    
+    // Add the Velite plugin
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
   } 
 };
+
 class VeliteWebpackPlugin {
   static started = false;
   constructor(/** @type {import('velite').Options} */ options = {}) {

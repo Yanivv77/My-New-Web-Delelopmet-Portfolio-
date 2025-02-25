@@ -8,8 +8,7 @@ import Footer from "@/components/Footer";
 import WorkAndEducation from "@/components/WorkAndEducation";
 import Games from "@/components/ui/Games";
 import { LinkBoxes } from "@/components/ui/LinkBoxes/index";
-import Translator from "@/components/Translator";
-import UrlShortener from "@/components/UrlShortener";
+import ExtraTools from "@/components/ExtraTools";
 
 if (process?.env?.NEXT_PUBLIC_NODE_ENV === 'production' || process?.env?.NODE_ENV === 'production') {
   console.warn = () => {};
@@ -27,8 +26,7 @@ const Home = () => {
         <FloatingNav navItems={navItems} />
         <Hero />
         <LinkBoxes />
-        <Translator />
-        <UrlShortener />
+        <ExtraTools />
         <WorkAndEducation />
         <Grid />
         <Games />

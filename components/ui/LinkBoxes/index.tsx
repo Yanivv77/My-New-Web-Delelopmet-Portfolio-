@@ -97,6 +97,7 @@ export function LinkBoxes() {
             {selectedLink?.content}
           </Modal>
         </div>
+        
       </section>
     </div>
   );
